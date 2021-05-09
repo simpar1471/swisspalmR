@@ -26,3 +26,4 @@ sendToSWISSpalm <- function(identifiers, dataset.value = 1, species.value = 1, o
   if(!missing(output.dir)){ write(swisspalm_output, file = file.path(output.dir, "swisspalm_output.txt")) }
 
 }
+
