@@ -4,7 +4,13 @@
 \alias{sendToSWISSpalm}
 \title{Send to SWISSpalm}
 \usage{
-sendToSWISSpalm(identifiers, output.type = "vec", output.dir)
+sendToSWISSpalm(
+  identifiers,
+  dataset.int = 1,
+  species.int = 1,
+  output.type = "text",
+  output.dir
+)
 }
 \arguments{
 \item{identifiers}{foo1}
