@@ -4,20 +4,16 @@
 \alias{sendToSWISSpalm}
 \title{Send to SWISSpalm}
 \usage{
-sendToSWISSpalm(
-  identifiers,
-  dataset.int = 1,
-  species.int = 1,
-  output.type = "text",
-  output.dir
-)
+sendToSWISSpalm(identifiers, dataset.value = 1, species.value = 1, output.dir)
 }
 \arguments{
-\item{identifiers}{foo1}
+\item{identifiers}{Vector of protein identifiers}
 
-\item{output.type}{foo2}
+\item{dataset.value}{Value indicating the desired dataset}
 
-\item{output.dir}{foo3}
+\item{species.value}{Value indicating the species preference}
+
+\item{output.dir}{If specified, indicates the directory in which the results will be saved.}
 }
 \value{
 Saves SWISSpalm output in specified user-specified output directory.
