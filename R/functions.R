@@ -8,22 +8,20 @@
 #' @return Saves SWISSpalm output in specified user-specified output directory.
 #' @author Simon Parker  \email{tadeo5@hotmail.co.uk}
 #' @export
-sendToSWISSpalm <- function(identifiers, dataset.value = 1, species.value = 1, output.dir){
+sendToSWISSpalm <- function(identifiers, dataset.value = 1, species.value = 1){
   if(missing(identifiers)) stop("You must provide protein identifiers.")
 
-#  checkmate::checkPathForOutput(x = tempfile(pattern = file.path(output.dir, "test_file"), fileext = ".tmp"))
   message("Sending identifiers to SWISSpalm.")
-  swisspalm_json <- rjson::toJSON(list(ids = identifiers,
-                                       dataset = dataset.value,
-                                       species = species.value,
-                                       output = output.type))
+  swisspalm_list <- list(ids = identifiers,
+                         dataset = dataset.value,
+                         species = species.value)
 
-  response <- httr::GET("https://www.swisspalm.org/", )
+  response <- httr::POST(url = "https://www.swisspalm.org/",
+                         body = swisspalm_list,
+                         encode = content_type("application/json"))
 
-  message(paste0("Retrieving ", output.type, " from SWISSpalm."))
+  message(paste0("Retrieving data from SWISSpalm."))
   swisspalm_output <- rjson::fromJSON(response$content)
-
-  if(!missing(output.dir)){ write(swisspalm_output, file = file.path(output.dir, "swisspalm_output.txt")) }
-
-}
+  return(swisspalm_output)
+  }
 
