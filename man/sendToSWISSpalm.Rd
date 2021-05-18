@@ -4,7 +4,7 @@
 \alias{sendToSWISSpalm}
 \title{Send to SWISSpalm}
 \usage{
-sendToSWISSpalm(identifiers, dataset.value = 1, species.value = 1, output.dir)
+sendToSWISSpalm(identifiers, dataset.value = 1, species.value = 1)
 }
 \arguments{
 \item{identifiers}{Vector of protein identifiers}
