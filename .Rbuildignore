@@ -1,3 +1,7 @@
 ^swisspalmTemp\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
+^README\.Rmd$
+^ignore\$
+^data-raw\$
+^\.github$
