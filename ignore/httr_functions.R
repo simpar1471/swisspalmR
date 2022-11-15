@@ -1,10 +1,9 @@
 #' @name sendToSWISSpalm
 #' @title Send to SWISSpalm
-#' @description Send protein identifiers to SWISSpalm
+#' @description Retrieve available palmitoylation data from SWISSpalm using protein identifiers
 #' @param identifiers Vector of protein identifiers.
 #' @param dataset.value Value indicating the desired dataset.
 #' @param species.value Value indicating the species preference.
-#' @param output.dir If specified, indicates the directory in which the results will be saved.
 #' @return Returns parsed SWISSpalm output.
 #' @author Simon Parker  \email{simon.parker1471@outlook.co.uk}
 #' @export
@@ -13,7 +12,7 @@ sendToSWISSpalm <- function(identifiers, dataset.value = "all", species.value = 
 
   message("Getting SWISSpalm identification data (cookie + CSRF identifier).")
   swisspalm_get_data <- httr::GET(url = "https://www.swisspalm.org/")
-  swisspalm_html <- content(swisspalm_get_data, as = "text")
+  swisspalm_html <- httr::content(swisspalm_get_data, as = "text")
   CSRF_regex <- regexpr(text = swisspalm_html, pattern = '"csrf-token" content=\".*\"')
   CSRF_token <- substr(swisspalm_html,
                      start = CSRF_regex[1],
@@ -21,7 +20,7 @@ sendToSWISSpalm <- function(identifiers, dataset.value = "all", species.value = 
     substr(start = 23, stop = 23 + 87)
   swisspalm_cookie <- c('_swisspalm_session' = swisspalm_get_data$cookies$value)
   # Will need to use V8 for R
-  # TODO: Look at https://cran.r-project.org/web/packages/V8/vignettes/v8_intro.html
+  # TODO: Make this use memoise (https://memoise.r-lib.org/) for caching function calls when possible
 
   # Make body string using SWISSpalmXHRString function.
   body_li <- list(`free_text` = "P60879, P60878",# as.vector(paste0(identifiers, collapse = ", ")),
@@ -69,7 +68,7 @@ sendToSWISSpalm <- function(identifiers, dataset.value = "all", species.value = 
 #' @description Parse/extract information from SWISSpalm
 #' @param swiss.response Response from POST request to SWISSpalm
 #' @return Returns adequately parsed SWISSpalm response.
-#' @author Simon Parker  \email{tadeo5@hotmail.co.uk}
+#' @author Simon Parker  \email{simon.parker1471@outlook.com}
 parseSWISSpalmResponse <- function(swiss.response){
   content <- swiss.response$content
   #return(rvest::html_table(rvest::read_html(rawToChar(content))))
@@ -82,7 +81,7 @@ parseSWISSpalmResponse <- function(swiss.response){
 #' @param body.li List of components to be included in the XHR.
 #' @param boundary.str String used to separate form components in the XHR.
 #' @return Returns string used in [LINK TO sendToSWISSpalm].
-#' @author Simon Parker  \email{tadeo5@hotmail.co.uk}
+#' @author Simon Parker  \email{simon.parker1471@outlook.com}
 SWISSpalmXHRString <- function(body.li, boundary.str) {
   line_sep <- "\r\n"
   body_start <- paste0(boundary.str, line_sep)
@@ -98,6 +97,29 @@ SWISSpalmXHRString <- function(body.li, boundary.str) {
 
 z <- sendToSWISSpalm(identifiers = c("P60879","P60878"))[[1]]
 
+# https://stackoverflow.com/questions/52084767/xhr-scrape-request-url-not-changing
+# copy cURL as bash; use curlconverter::straighten() and curlconverter::
+swisspalm_response <- httr::VERB(
+  verb = "GET", url = "https://swisspalm.org/proteins/search",
+  httr::add_headers(
+    Accept = "*/*",
+    `Accept-Language` = "en-GB,en-US;q=0.9,en;q=0.8,hy;q=0.7",
+    Connection = "keep-alive",
+    DNT = "1",
+    Origin = "https://swisspalm.org",
+    Referer = "https://swisspalm.org/proteins",
+    `Sec-Fetch-Dest` = "empty",
+    `Sec-Fetch-Mode` = "cors",
+    `Sec-Fetch-Site` = "same-origin",
+    `User-Agent` = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
+    `X-CSRF-Token` = "YBKpXBINYHJy/Y9t/JNEgoczsVys4KwN4r4bjXvpNQatQ+WnEQ20e35c+DIs5scEPcLNGsBRXRmLXxLIXTu5YQ==",
+    `X-Requested-With` = "XMLHttpRequest",
+    `sec-ch-ua` = "\"Google Chrome\";v=107\", \"Chromium\";v=\"107\", \"Not=A?Brand\";v=\"24",
+    `sec-ch-ua-mobile` = "?0",
+    `sec-ch-ua-platform` = "\"Windows\"",
+    `sec-gpc` = "1"
+  ), httr::set_cookies(`_swisspalm_session` = "cmUzL2lnVTJPeXk2VExsQjF6ZTRXT1Q3Wmdpd2QvYy9aVUR2cCtyNk5YMllPa1dGeDdiK0dmREJvazZQUzFqTWpyVVlpRlp4UkN0WjltbGZqUi9mVmdQcUFCVTk5RHplT1FGZXFDNjlaMVN4TW9EaFpvUkhFKzZ6UnJjbkdPOElvYVJGYkRFVzdxbTFnQ0VnQVU1R2g4NlkrUnNLeFJUcW9VeXNhSVplek9TN1N1cysxL2ZlQVUyb0l6eWM2ak9kbEd4WVJSK011NUN5SERveWF5SFgvcWI5c0FEOHNCeFpRbDlCRzJDcTJFSUJYTFFaSUIxZXJVSHpCQmxaRE1obzlJRUdURGdWMzE2aGtUV0NUdElIY2s5amJVc0duQnlUYlBVN3FFN0I2cUtVT3ZpSGRuUXZBSnE4SEZCL3VOa2tFZHVVOXh2dUZrazVnRVk5aDM0QTRmZTkyeHpzQXN0ZG1yYVJjZ0JuWnFySFcwd0tIeXhaMmpKVE5rN2E4RU9JY2g4LzgvSk0wZmkxY2lzWW1mWS9STDNYVXZzN2ZHaklab3k3ck9MVDR4T3grNXZwKzF1a2EvVHNGWFNqNm1rSmI1RjhTNWtrSXY5MStHUytGRTgrR2dncEpMdFVNTDZhMGxhZ3hZdk5oNUk0NlBRSVhydG1TaU1kMENHc2Ziem5TSlRLWVZ5Zk5TL1V3WFBTdTJPdTVTWDc4SU9ONlRRbjZPUmp4MjJZQlVJZ2NGUVNZOUNXa3hYajhQdTBPREI3dDJqaXpwdzhpRFNTSE5rY29PR2pVeHB4bUs4STJreEYyNWFXZjBLd3p5N1h6dGswY0VjMUNLZkw3WWdXVVozM3FVVVRyM0ErWmQ2K1NPcGJLSVEwazRTMTE5MEsyVTVldW9yQld0aWllVWFJc0RRK1V6TldEbW9uQklzL1phKzhqL1hHUlJKMk5UaDNwUE9jTzIyeWhrR0V4Rms0WWpPQng1SmtYUzloOXZRZ0d1dDc2am1yU2c0aGZ6amlmNWl2UEZ2cm5rTTdYSno1Wi9nY3R3Y0dud0g5OEpXNnAzSk9Kbjc5NE1EbTV0QjJzRDNJcm5qZXgvejh5azcyb1ZzNTAwT0FOS0NvU2ZiNkhVVU10a2s5T3BidTFNWElCZXJwSjZXL0NoM0RzbjhyYnlzVVZpa3JuNXdCYWdSYmQzcXFCU1padGhLYmFZcWZ4b1pRdU03MG03akpuV2JNZXd6UmhwZUJnOTYvOHVUdGo1QThrM0hJdTlRQVdXRm5heFJITEJZNU1VTWpPc1h3clgzYTdSY09zWnRjTzZtU2VFVGxobyt4cDdYckFOOD0tLXZnT0hFeGlUa0Jnb2U1ZkVvL05laHc9PQ%3D%3D--68310c371a14c5a2a9e13deba5498fe42e69de41"),
+  encode = "multipart"
+)
 
-stringr::str_detect(string = "_swisspalm_session=SGZTRDgrT2VsMnUyRlo4LzgzL2dtRnIzbzR3Mk8yWCt6ZURUN2I1a0lhNGhwOFc5UHFLdE9USktEd2xLY2Faa0RXU0lrbDZnVzRvOHVQVXJ5Y004bTZTTlpVMElucHR5K3NzbG4wODAvaDNWNnNFTG1tV2pqZUNPS0ppSGpyZE15cDFXSW5FTndSMVYweHh1Tzc5dnVJdHQ4RlJQRGhQMVRQSlJzWm55Wk1ITTI5QWFiMDhhRTB6YXNIdVI4RmNNQmErUUFyZXJzcHF2U0FINllVZXl1TDFDMVNSWlBIbGNBbUp3eThjY3NtNVEwSkRzdE5NM2hTZmtRcVJJWHdSbzBMbmRIbkI0Q0hYQjB4Tkhaa2JJVlVIbklYdG5sQXpvdE9tL3owK1EvQ214SGFXUE5PeFZ3N0ZDMEZCa1pobFlac1lCbWVqdGwxNkoxMWFWa2J6Q3R0QW5yM2ZZUkcwSVZNTzBSVWxQTDNNU09vaGMrdVlkU1R1STU4bTJiVWxLUnFsRGQyc0ZEYmNuRDBzZGROMS9sNkZGYVExdXJSRlBXZHhVYXN0dDRnU3FXRHE1UnQzajdyVUdGWjMvRnBxL1VkOU9yZ25MdjhHTzVOU3dYOW5Eem9IY0J6WTRhZXhaWXUyOU4zSmlzeTlyb0xjWkpPNVAvK0sySVFobGdQU1ZpRXV1RXZBM0dXOXpxbitDM1FWUDdzMlhrejZ5ZVYvMmNiRldFYTBDZlY1YUhaVXpONnU3RUNuZ2ZpYTRYQzFUODZKQVNIVXROS3BWM2xxeWI1b2lzVlZHUGJiS2VhRjVtWGdWWENIRlJiNFRvZ0UzRHNXK2haRDdOZW8wcVU1eXpOemdERTNNblJuUURIWVRlZERQZ3QxS0RCTjJGQ05KcVFKT0RJakZTQWJLVFVzbXBGalh5dU1zQ2NIdmNnWmlQcHhKK2hNcnU5NW5TMHo4T2tNN1BVQlZlKzNWYzJ0RGcwOVY1NjRzQjREMERGZUJ4cld4cmI4L1J4TzY0b2NaUndFWmJoVDhQTEw5S2JBV2RVSC9wM1lOK0VaS2ZoTllUSGxISEJ3TEY5bGpVaGpWallBWE5Oc0sxd1Y1Qjd6VEJkS0paSit2bzlNUnlXWWJMVmYyRGVJMklzQjZwWjArRnF5M0k4RUcxKy9MOGorYkdiblAyZE1JR1d5Z2NrRHFzOXBqN2hzRUFNNlZXSHpITlNyMVhQZUlFMG9MeEFYWFQwWXBVTEJqVFhsOHRmRnYvaTBCS0xEaUdGamF2YWJyQ3d3WVNwMFM3NmxxeTMwWWxHQlc0QXh0OG1yRHFwdG11YUFKVHZvTnVVdz0tLWx3QkZ0TFdPZWRQSXZDLzNwN1BMQkE9PQ%3D%3D--88c2a690b7c350966cc6192da092aa25f15a77aa",
-                    pattern = "EwH")
+
