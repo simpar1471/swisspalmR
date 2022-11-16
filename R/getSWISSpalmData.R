@@ -40,7 +40,7 @@ getSWISSpalmData <- function(protein.identifiers, download_dir = tempdir(), data
                                     verbose = FALSE)
   })
 
-  # Make sure to kill java even if the function exists early
+  # Set up on.exit() so processes are mopped up even if the function encounters an error
   if (grepl(x = Sys.info()["sysname"], pattern = "Windows")) {
     on.exit(expr = {
       if (verbose) cat(paste0("Removing temporary files at: ", download_dir, "\n"))
