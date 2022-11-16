@@ -8,7 +8,8 @@ getSWISSpalmData(
   protein.identifiers,
   download_dir = tempdir(),
   dataset.value = 1,
-  species.value = 0
+  species.value = 0,
+  verbose = F
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ getSWISSpalmData(
 \item{dataset.value}{Which dataset should SWISSpalm use? Key-value pairs are in [swisspalm::dataset_values]. Default = 1 (all datasets)}
 
 \item{species.value}{Which species should SWISSpalm search for? Key-value pairs for species are in [swisspalm::species_values]. Default = 0 (all species)}
+
+\item{verbose}{If TRUE, send status messages to the console.}
 }
 \value{
 Data frame containing palmitoylation data for proteins in protein.identifiers.

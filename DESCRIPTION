@@ -1,25 +1,21 @@
-Package: swisspalmTemp
+Package: swisspalmR
 Title: SWISSpalm In R
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "Simon",
-           family = "Parker",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: Access to the SWISSpalm database in R.
+    person("Simon", "Parker", , "simon.parker@outlook.com", role = c("aut", "cre"))
+Description: Access the SWISSpalm database in R using RSelenium.
 License: MIT + file LICENSE
+Depends: 
+    R (>= 4.1.0)
+Imports: 
+    RSelenium,
+    binman,
+    data.table,
+    memoise
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
-Imports:
-    rjson (>= 0.2.20),
-    httr (>= 1.4.2),
-    RSelenium,
-    data.table
-Depends: 
-    R (>= 4.1.0)
-Suggests: 
-    testthat (>= 3.0.0)
-Config/testthat/edition: 3

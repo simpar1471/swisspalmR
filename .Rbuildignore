@@ -2,6 +2,9 @@
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^README\.Rmd$
-^ignore\$
-^data-raw\$
-^\.github$
+^ignore$
+^data-raw$
+^.github$
+^.idea$
+^tests-temp$
+

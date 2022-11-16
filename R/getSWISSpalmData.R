@@ -4,11 +4,18 @@
 #' @param download_dir Directory in which temporary files will be downloaded. Defaults to R temporary directory.
 #' @param dataset.value Which dataset should SWISSpalm use? Key-value pairs are in \[swisspalm::dataset_values]. Default = 1 (all datasets)
 #' @param species.value Which species should SWISSpalm search for? Key-value pairs for species are in \[swisspalm::species_values]. Default = 0 (all species)
+#' @param verbose If TRUE, send status messages to the console.
 #' @return Data frame containing palmitoylation data for proteins in protein.identifiers.
 #' @references SwissPalm: Protein Palmitoylation database. Mathieu Blanc*, Fabrice P.A. David*, Laurence Abrami, Daniel Migliozzi, Florence Armand, Jérôme Burgi and F. Gisou van der Goot. F1000Research. (https://doi.org/10.12688/f1000research.6464.1)
+#' @importFrom binman list_versions
+#' @importFrom data.table fread fwrite
+#' @importFrom RSelenium rsDriver
 #' @export
-getSWISSpalmData <- memoise::memoise(function(protein.identifiers, download_dir = tempdir(), dataset.value = 1, species.value = 0)
+getSWISSpalmData <- function(protein.identifiers, download_dir = tempdir(), dataset.value = 1, species.value = 0, verbose = F)
 {
+  if (!dataset.value %in% swisspalmR::dataset_values) stop("The value given for dataset.value in not in swisspalmR::dataset_values")
+  if (!species.value %in% swisspalmR::species_values) stop("The value given for species.value in not in swisspalmR::species_values")
+
   input_file <- tempfile(pattern = "", fileext = ".txt")
   if (!file.exists(input_file)) data.table::fwrite(list(protein.identifiers), file = input_file)
   output_file <- file.path(download_dir, "query_result.txt")
@@ -17,24 +24,26 @@ getSWISSpalmData <- memoise::memoise(function(protein.identifiers, download_dir 
   rselenium_ext_caps <- list(chromeOptions = list(prefs = list("download.prompt_for_download" = FALSE,
                                                                "download.default_directory" = download_dir),
                                                   args = list("--headless")))
-  # TODO: Get working on Mac OS and Linux
+
   available_vers <- binman::list_versions(appname = "chromedriver")
-  rsdriver <- suppressMessages(
-    RSelenium::rsDriver(browser = "chrome",
-                        chromever = available_vers$win32[length(available_vers)],
-                        extraCapabilities = rselenium_ext_caps)
+  tryCatch(system(command = "taskkill /im java.exe /f", intern = FALSE, ignore.stdout = TRUE, ignore.stderr = TRUE),
+           error = function(e) if (verbose) print(e), warning = function(w) if (verbose) print(w),
+           finally =
+             rsdriver <- RSelenium::rsDriver(browser = "chrome",
+                                             chromever = available_vers$win32[length(available_vers)],
+                                             extraCapabilities = rselenium_ext_caps,
+                                             verbose = FALSE)
   )
 
   # Make sure to kill java even if the function exists early
-  # TODO: Get working on Mac OS and Linux
   if (grepl(x = Sys.info()["sysname"], pattern = "Windows")) {
     on.exit(expr = {
-      cat(paste0("\nRemoving temporary files at: ", download_dir))
+      if (verbose) cat(paste0("\nRemoving temporary files at: ", download_dir))
       unlink(input_file)
-      cat("\nKilling Java process used for selenium:\n\t")
+      if (verbose) cat("\nKilling Java process used for selenium:\n\t")
       tryCatch(system(command = "taskkill /im java.exe /f",
-                      intern = FALSE, ignore.stdout = FALSE),
-               error = function(e) cat("Selenium process already killed.\n"))
+                      intern = FALSE, ignore.stdout = TRUE, ignore.stderr = TRUE),
+               error = function(e) if (verbose) cat("Selenium process already killed.\n"))
     })
   }
 
@@ -67,7 +76,7 @@ getSWISSpalmData <- memoise::memoise(function(protein.identifiers, download_dir 
   nf_in_db <- SWISSpalm_driver$findElements(using = "id", value = "btn-list_not_found_at_all")
   if(length(nf_in_db))
 {
-    message("Retrieving symbols not in database")
+    if (verbose) message("Retrieving symbols not in database")
     SWISSpalm_driver$findElement(using = "id", value = "btn-list_not_found_at_all")$clickElement()
     Sys.sleep(time = 0.5)
     elem_nf_in_db <- SWISSpalm_driver$findElement(using = "id", value = "list_not_found_at_all")
@@ -81,7 +90,7 @@ getSWISSpalmData <- memoise::memoise(function(protein.identifiers, download_dir 
   nf_in_ds <- SWISSpalm_driver$findElements(using = "id", value = "btn-list_not_found")
   if(length(nf_in_ds))
   {
-    message("Retrieving symbols not in dataset")
+    if (verbose) message("Retrieving symbols not in dataset")
     SWISSpalm_driver$findElement(using = "id", value = "btn-list_not_found")$clickElement()
     Sys.sleep(time = 0.5)
     elem_nf_in_ds <- SWISSpalm_driver$findElement(using = "id", value = "list_not_found")
@@ -94,7 +103,7 @@ getSWISSpalmData <- memoise::memoise(function(protein.identifiers, download_dir 
 
   # Download output file as long as some proteins were found in SWISSpalm #
   if (all(protein.identifiers %in% c(not_found_in_dataset, not_found_in_database))) {
-    message("\nNone of the supplied accessions were found in the SWISSpalm database. Exiting...")
+    if (verbose) message("\nNone of the supplied accessions were found in the SWISSpalm database. Exiting...")
     return(list(palmData = NA_character_, notInDatabase = not_found_in_database, notInDataset = not_found_in_dataset))
   }
 
@@ -106,9 +115,12 @@ getSWISSpalmData <- memoise::memoise(function(protein.identifiers, download_dir 
     Sys.sleep(time = 3)
   }
 
+  out_li <- list(palmData = data.table::fread(input = normalizePath(output_file)),
+                 notInDatabase = not_found_in_database, notInDataset = not_found_in_dataset)
+
   # Clear temporary files and on.exit() cache #
   on.exit()
-  cat(paste0("\nRemoving temporary files at: ", download_dir))
+  if (verbose) cat(paste0("\nRemoving temporary files at: ", download_dir))
   unlink(input_file)
   unlink(output_file)
 
@@ -116,6 +128,5 @@ getSWISSpalmData <- memoise::memoise(function(protein.identifiers, download_dir 
   SWISSpalm_driver$close()
   rsdriver$server$stop()
 
-  return(list(palmData = data.table::fread(input = normalizePath(output_file)),
-              notInDatabase = not_found_in_database, notInDataset = not_found_in_dataset))
-})
+  return(out_li)
+}
