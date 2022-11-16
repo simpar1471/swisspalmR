@@ -13,17 +13,17 @@ knitr::opts_chunk$set(
 )
 ```
 
-# swisspalmTemp
+# swisspalmR
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/simpar1471/swisspalmTemp/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/simpar1471/swisspalmTemp/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The swisspalm package is designed to let you retrieve SWISSpalm data programatically from R using headless chromedriver sessions.
+The swisspalmR package lets you retrieve SWISSpalm data programatically from R using headless chromedriver sessions.
 
 ## Installation
 
-You can install the development version of swisspalmTemp from [GitHub](https://github.com/) with:
+You can install the development version of swisspalmR from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -32,11 +32,24 @@ devtools::install_github("simpar1471/swisspalmTemp")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+To query the SWISSpalm database, get your protein accessions into a vector. You can then check them against the
+SWISSpalm database with `getSWISSpalmData()`. You'll get back a list with three entries:
+1. palmData: A table available SWISSpalm data for each protein accession in the selected dataset + species
+2. notInDatabase: A character vector with protein accessions which are not in SWISSpalm
+3. notInDataset: A character vector with protein accessions which are in SWISSpalm but not in the selected dataset + species
 
+For example:
 ```{r example_spalm1}
-#library(swisspalmTemp)
 input_uniprot <- c("P05067", "O00161", "P04899")
-spalm_data <- getSWISSpalmData(c("P05067", "O00161", "P04899"), dataset.value = 1, species.value = 1)
-head(spalm_data[1]); head(spalm_data[2]); head(spalm_data[3])
+spalm_data_all_species <- swisspalmR::getSWISSpalmData(input_uniprot)
+head(dplyr::tibble(spalm_data_all_species$palmData)); head(spalm_data_all_species[2:3])
+```
+You can test your protein accessions against specific datasets or species in SWISSpalm using the `dataset.value` and
+`species.value` parameters:
+```{r example_spalm2}
+# Checking against only SARS-Cov
+spalm_data_only_sarscov <- swisspalmR::getSWISSpalmData(input_uniprot,
+                                                        dataset.value = 1,
+                                                        species.value = swisspalmR::species_values["SARS-CoV"])
+head(spalm_data_only_sarscov)
 ```
