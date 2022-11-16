@@ -17,33 +17,37 @@ getSWISSpalmData <- function(protein.identifiers, download_dir = tempdir(), data
   if (!species.value %in% swisspalmR::species_values) stop("The value given for species.value is not in swisspalmR::species_values")
 
   input_file <- tempfile(pattern = "", fileext = ".txt")
+  if (verbose) cat(paste0("\nSaving SWISSpalm input file to ", input_file, "..."))
   if (!file.exists(input_file)) data.table::fwrite(list(protein.identifiers), file = input_file)
+  if (verbose) cat("\t Saved.\n")
   output_file <- file.path(download_dir, "query_result.txt")
 
   # Start RSelenium driver
   rselenium_ext_caps <- list(chromeOptions = list(prefs = list("download.prompt_for_download" = FALSE,
                                                                "download.default_directory" = download_dir),
                                                   args = list("--headless")))
-
   available_vers <- binman::list_versions(appname = "chromedriver")
-  tryCatch(system(command = "taskkill /im java.exe /f", intern = FALSE, ignore.stdout = TRUE, ignore.stderr = TRUE),
-           error = function(e) if (verbose) print(e), warning = function(w) if (verbose) print(w),
-           finally =
-             rsdriver <- RSelenium::rsDriver(browser = "chrome",
-                                             chromever = available_vers$win32[length(available_vers)],
-                                             extraCapabilities = rselenium_ext_caps,
-                                             verbose = FALSE)
-  )
+  tryCatch({
+    system(command = "taskkill /im java.exe /f", intern = FALSE, ignore.stdout = TRUE, ignore.stderr = TRUE)
+  }, warning = function(w) {
+      if (verbose) cat(paste0("\n", w))
+  }, error = function(e) {
+      if (verbose) cat(paste0("\n", e))
+  }, finally = {
+    rsdriver <- RSelenium::rsDriver(browser = "chrome",
+                                    chromever = available_vers$win32[length(available_vers)],
+                                    extraCapabilities = rselenium_ext_caps,
+                                    verbose = FALSE)
+  })
 
   # Make sure to kill java even if the function exists early
   if (grepl(x = Sys.info()["sysname"], pattern = "Windows")) {
     on.exit(expr = {
-      if (verbose) cat(paste0("\nRemoving temporary files at: ", download_dir))
+      if (verbose) cat(paste0("Removing temporary files at: ", download_dir, "\n"))
       unlink(input_file)
-      if (verbose) cat("\nKilling Java process used for selenium:\n\t")
-      tryCatch(system(command = "taskkill /im java.exe /f",
-                      intern = FALSE, ignore.stdout = TRUE, ignore.stderr = TRUE),
-               error = function(e) if (verbose) cat("Selenium process already killed.\n"))
+      if (verbose) cat("Stopping RSelenium server...")
+      rsdriver$server$stop()
+      if (verbose) cat("\tStopped.\n")
     })
   }
 
@@ -120,13 +124,12 @@ getSWISSpalmData <- function(protein.identifiers, download_dir = tempdir(), data
 
   # Clear temporary files and on.exit() cache #
   on.exit()
-  if (verbose) cat(paste0("\nRemoving temporary files at: ", download_dir))
+  if (verbose) cat(paste0("Removing temporary files at: ", download_dir, "\n"))
   unlink(input_file)
   unlink(output_file)
-
-  # Kill Selenium and Java objects #
-  SWISSpalm_driver$close()
+  if (verbose) cat("Stopping RSelenium server...")
   rsdriver$server$stop()
+  if (verbose) cat("\tStopped.\n")
 
   return(out_li)
 }
