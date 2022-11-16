@@ -13,8 +13,8 @@
 #' @export
 getSWISSpalmData <- function(protein.identifiers, download_dir = tempdir(), dataset.value = 1, species.value = 0, verbose = F)
 {
-  if (!dataset.value %in% swisspalmR::dataset_values) stop("The value given for dataset.value in not in swisspalmR::dataset_values")
-  if (!species.value %in% swisspalmR::species_values) stop("The value given for species.value in not in swisspalmR::species_values")
+  if (!dataset.value %in% swisspalmR::dataset_values) stop("The value given for dataset.value is not in swisspalmR::dataset_values")
+  if (!species.value %in% swisspalmR::species_values) stop("The value given for species.value is not in swisspalmR::species_values")
 
   input_file <- tempfile(pattern = "", fileext = ".txt")
   if (!file.exists(input_file)) data.table::fwrite(list(protein.identifiers), file = input_file)
