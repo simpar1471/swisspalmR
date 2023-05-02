@@ -11,7 +11,7 @@
 #' @importFrom data.table fread fwrite
 #' @importFrom RSelenium rsDriver
 #' @export
-getSWISSpalmData <- function(protein.identifiers, download_dir = tempdir(), dataset.value = 1, species.value = 0, verbose = F)
+SWISSpalm_selenium <- function(protein.identifiers, download_dir = tempdir(), dataset.value = 1, species.value = 0, verbose = F)
 {
   if (!dataset.value %in% swisspalmR::dataset_values) stop("The value given for dataset.value is not in swisspalmR::dataset_values")
   if (!species.value %in% swisspalmR::species_values) stop("The value given for species.value is not in swisspalmR::species_values")

@@ -3,17 +3,18 @@
 \docType{data}
 \name{dataset_values}
 \alias{dataset_values}
-\title{Mappings for dataset.value in getSWISSpalmData()}
+\title{Mappings for dataset in getSWISSpalmData()}
 \format{
 \subsection{\code{dataset_values}}{
 
-A vector of numbers with corresponding names which correspond key-value pairs of dataset.value
+A character vector with corresponding names for each available value of
+\code{dataset} in \code{getSWISSpalmData()}
 }
 }
 \usage{
 dataset_values
 }
 \description{
-Mappings for dataset.value in getSWISSpalmData()
+Mappings for dataset in getSWISSpalmData()
 }
 \keyword{datasets}

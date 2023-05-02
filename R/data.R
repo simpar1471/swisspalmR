@@ -1,11 +1,13 @@
-#' Mappings for dataset.value in getSWISSpalmData()
+#' Mappings for dataset in getSWISSpalmData()
 #'
 #' @format ## `dataset_values`
-#' A vector of numbers with corresponding names which correspond key-value pairs of dataset.value
+#' A character vector with corresponding names for each available value of
+#' `dataset` in `getSWISSpalmData()`
 "dataset_values"
 
-#' Mappings for species.value parameter in getSWISSpalmData()
+#' Mappings for species parameter in getSWISSpalmData()
 #'
-#' @format ## `dataset_values`
-#' A vector of numbers with corresponding names which correspond key-value pairs of species.value
+#' @format ## `species_values`
+#' A character vector with corresponding names for each available value of
+#' `species` in `getSWISSpalmData()`
 "species_values"

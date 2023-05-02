@@ -3,17 +3,18 @@
 \docType{data}
 \name{species_values}
 \alias{species_values}
-\title{Mappings for species.value parameter in getSWISSpalmData()}
+\title{Mappings for species parameter in getSWISSpalmData()}
 \format{
-\subsection{\code{dataset_values}}{
+\subsection{\code{species_values}}{
 
-A vector of numbers with corresponding names which correspond key-value pairs of species.value
+A character vector with corresponding names for each available value of
+\code{species} in \code{getSWISSpalmData()}
 }
 }
 \usage{
 species_values
 }
 \description{
-Mappings for species.value parameter in getSWISSpalmData()
+Mappings for species parameter in getSWISSpalmData()
 }
 \keyword{datasets}
