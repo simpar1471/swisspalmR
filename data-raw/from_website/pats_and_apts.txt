@@ -1,0 +1,202 @@
+# Content: pats_and_apts
+# Copyright: 2022, Ecole Polytechnique Federale de Lausanne.
+# License: Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+# Version: Release 4 (07/30/2022)
+organism	enzyme_type	uniprot_ac	uniprot_id	uniprot_description	main_gene_name	enzyme_family	enzyme_number	nber_hits	nber_substrates	list_isoform_substrates	list_sites_by_isoform_substrates
+Arabidopsis thaliana	PAT	Q9C533	ZDHC1_ARATH	Probable protein S-acyltransferase 22, EC 2.3.1.225 (Probable palmitoyltransferase At1g69420) (Zinc finger DHHC domain-containing protein At1g69420)	PAT22	ZDHHC	22	0	0		
+Arabidopsis thaliana	PAT	Q9M115	ZDH16_ARATH	Protein S-acyltransferase 18, EC 2.3.1.225 (Probable palmitoyltransferase At4g01730) (Zinc finger DHHC domain-containing protein At4g01730)	PAT18	ZDHHC	18	0	0		
+Arabidopsis thaliana	PAT	Q7XA86	ZDH11_ARATH	Protein S-acyltransferase 10, EC 2.3.1.225 (Probable palmitoyltransferase At3g51390) (Zinc finger DHHC domain-containing protein At3g51390)	PAT10	ZDHHC	10	1	1	Q7XA86	192
+Arabidopsis thaliana	PAT	Q8L5Y5	ZDH17_ARATH	Probable protein S-acyltransferase 19, EC 2.3.1.225 (Probable palmitoyltransferase At4g15080) (Zinc finger DHHC domain-containing protein At4g15080)	PAT19	ZDHHC	19	0	0		
+Rattus norvegicus	PAT	E9PTT0	ZDH17_RAT	Palmitoyltransferase ZDHHC17, EC 2.3.1.225 (Acyltransferase ZDHHC17, EC 2.3.1.-) (Zinc finger DHHC domain-containing protein 17)	Zdhhc17	ZDHHC	17	4	4	P60881;Q63796	85,88,90,92;436
+Xenopus laevis	PAT	Q5FWL7	ZDH15_XENLA	Palmitoyltransferase ZDHHC15, EC 2.3.1.225 (Acyltransferase ZDHHC15, EC 2.3.1.-) (Zinc finger DHHC domain-containing protein 15 homolog, DHHC-15)	zdhhc15	ZDHHC	15	0	0		
+Canis familiaris	PAT	Q2THW9	ZDHC5_CANLF	Palmitoyltransferase ZDHHC5, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 5, DHHC-5)	ZDHHC5	ZDHHC	5	0	0		
+Arabidopsis thaliana	PAT	Q9LIE4	ZDHC8_ARATH	Probable protein S-acyltransferase 20, EC 2.3.1.225 (Probable palmitoyltransferase At3g22180) (Zinc finger DHHC domain-containing protein At3g22180)	PAT20	ZDHHC	20	0	0		
+Arabidopsis thaliana	PAT	Q0WQK2	ZDHC9_ARATH	Probable protein S-acyltransferase 7, EC 2.3.1.225 (Probable palmitoyltransferase At3g26935) (Zinc finger DHHC domain-containing protein At3g26935)	PAT07	ZDHHC	7	0	0		
+Arabidopsis thaliana	PAT	Q93VV0	ZDHC6_ARATH	Probable protein S-acyltransferase 16, EC 2.3.1.225 (Probable palmitoyltransferase At3g09320) (Zinc finger DHHC domain-containing protein At3g09320)	PAT16	ZDHHC	16	0	0		
+Arabidopsis thaliana	PAT	Q9LIH7	ZDHC7_ARATH	Protein S-acyltransferase 11, EC 2.3.1.225 (Probable palmitoyltransferase At3g18620) (Zinc finger DHHC domain-containing protein At3g18620)	PAT11	ZDHHC	11	0	0		
+Bos taurus	PAT	Q58CU4	ZDH16_BOVIN	Palmitoyltransferase ZDHHC16, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 16, DHHC-16)	ZDHHC16	ZDHHC	16	0	0		
+Bos taurus	PAT	Q2HJ95	ZDHC6_BOVIN	Palmitoyltransferase ZDHHC6, EC 2.3.1.225 (Stearoyltransferase ZDHHC6, EC 2.3.1.-) (Zinc finger DHHC domain-containing protein 6, DHHC-6)	ZDHHC6	ZDHHC	6	0	0		
+Bos taurus	PAT	Q0VC89	ZDH20_BOVIN	Palmitoyltransferase ZDHHC20, EC 2.3.1.225 (Acyltransferase ZDHHC20, EC 2.3.1.-) (Zinc finger DHHC domain-containing protein 20)	ZDHHC20	ZDHHC	20	0	0		
+Bos taurus	PAT	E1BLT8	ZDHC5_BOVIN	Palmitoyltransferase ZDHHC5, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 5, DHHC-5)	ZDHHC5	ZDHHC	5	0	0		
+Arabidopsis thaliana	PAT	B3DN87	ZDH12_ARATH	Probable protein S-acyltransferase 1, EC 2.3.1.225 (Probable palmitoyltransferase At3g56920) (Zinc finger DHHC domain-containing protein At3g56920)	PAT01	ZDHHC	1	0	0		
+Mus musculus	PAT	Q8BQQ1	ZDH14_MOUSE	Palmitoyltransferase ZDHHC14, EC 2.3.1.225 (DHHC domain-containing cysteine-rich protein 14, DHHC-14) (NEW1 domain-containing protein, NEW1CP) (Zinc finger DHHC domain-containing protein 14)	Zdhhc14	ZDHHC	14	3	3	Q8N4C7;Q60700	284,285,287,288,290,291;436
+Rattus norvegicus	PAT	Q2TGI5	ZDH24_RAT	Probable palmitoyltransferase ZDHHC24, EC 2.3.1.225 (Membrane-associated zinc finger protein DHHC25) (Zinc finger DHHC domain-containing protein 24, DHHC-24)	Zdhhc24	ZDHHC	24	0	0		
+Rattus norvegicus	PAT	Q2TGJ4	ZDH15_RAT	Palmitoyltransferase ZDHHC15, EC 2.3.1.225 (Acyltransferase ZDHHC15, EC 2.3.1.-) (Zinc finger DHHC domain-containing protein 15, DHHC-15)	Zdhhc15	ZDHHC	15	2	1	P31016	3,5
+Rattus norvegicus	PAT	Q6DGF5	ZDH12_RAT	Palmitoyltransferase ZDHHC12, EC 2.3.1.225 (DHHC domain-containing cysteine-rich protein 12, DHHC-12) (Zinc finger DHHC domain-containing protein 12)	Zdhhc12	ZDHHC	12	1	1		
+Rattus norvegicus	PAT	Q2TGI8	ZDH22_RAT	Palmitoyltransferase ZDHHC22, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 22, DHHC-22, zDHHC22)	Zdhhc22	ZDHHC	22	0	0		
+Rattus norvegicus	PAT	Q2TGJ1	ZDH18_RAT	Palmitoyltransferase ZDHHC18, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 18)	Zdhhc18	ZDHHC	18	0	0		
+Bos taurus	PAT	A2VDT6	ZDH21_BOVIN	Palmitoyltransferase ZDHHC21, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 21)	ZDHHC21	ZDHHC	21	0	0		
+Rattus norvegicus	PAT	Q5FVR1	ZDHC4_RAT	Palmitoyltransferase ZDHHC4, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 4, DHHC-4)	Zdhhc4	ZDHHC	4	0	0		
+Arabidopsis thaliana	PAT	Q9M1K5	ZDH13_ARATH	Probable protein S-acyltransferase 4, EC 2.3.1.225 (Probable palmitoyltransferase At3g56930) (Zinc finger DHHC domain-containing protein At3g56930)	PAT04	ZDHHC	4	0	0		
+Arabidopsis thaliana	PAT	Q9FLM3	ZDH23_ARATH	Probable protein S-acyltransferase 6, EC 2.3.1.225 (Probable palmitoyltransferase At5g41060) (Zinc finger DHHC domain-containing protein At5g41060)	PAT06	ZDHHC	6	0	0		
+Arabidopsis thaliana	PAT	Q8VYS8	ZDH24_ARATH	Probable protein S-acyltransferase 9, EC 2.3.1.225 (Probable palmitoyltransferase At5g50020) (Zinc finger DHHC domain-containing protein At5g50020)	PAT09	ZDHHC	9	0	0		
+Arabidopsis thaliana	PAT	O80685	ZDHC4_ARATH	Probable protein S-acyltransferase 2, EC 2.3.1.225 (Probable palmitoyltransferase At2g40990) (Zinc finger DHHC domain-containing protein At2g40990)	PAT02	ZDHHC	2	0	0		
+Arabidopsis thaliana	PAT	Q9M306	ZDH10_ARATH	Probable protein S-acyltransferase 5, EC 2.3.1.225 (Probable palmitoyltransferase At3g48760) (Zinc finger DHHC domain-containing protein At3g48760)	PAT05	ZDHHC	5	0	0		
+Arabidopsis thaliana	PAT	Q3EBC2	ZDHC5_ARATH	Probable protein S-acyltransferase 17, EC 2.3.1.225 (Probable palmitoyltransferase At3g04970) (Zinc finger DHHC domain-containing protein At3g04970)	PAT17	ZDHHC	17	0	0		
+Arabidopsis thaliana	PAT	Q500Z2	ZDH20_ARATH	Probable protein S-acyltransferase 15, EC 2.3.1.225 (Probable palmitoyltransferase At5g04270) (Zinc finger DHHC domain-containing protein At5g04270)	PAT15	ZDHHC	15	0	0		
+Arabidopsis thaliana	PAT	Q5PNZ1	ZDH21_ARATH	Probable protein S-acyltransferase 3, EC 2.3.1.225 (Probable palmitoyltransferase At5g05070) (Zinc finger DHHC domain-containing protein At5g05070)	PAT03	ZDHHC	3	0	0		
+Arabidopsis thaliana	PAT	Q6DR03	ZDHC3_ARATH	Protein S-acyltransferase 21, EC 2.3.1.225 (Probable palmitoyltransferase At2g33640) (Zinc finger DHHC domain-containing protein At2g33640)	PAT21	ZDHHC	21	0	0		
+Toxoplasma gondii	PAT	S8F5W6	S8F5W6_TOXGM	DHHC zinc finger domain-containing protein	NA			0	0		
+Canis familiaris	PAT	Q2THW8	ZDHC8_CANLF	Palmitoyltransferase ZDHHC8, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 8, DHHC-8)	ZDHHC8	ZDHHC	8	0	0		
+Homo sapiens	PAT	Q9NUE0	ZDH18_HUMAN	Palmitoyltransferase ZDHHC18, EC 2.3.1.225 (DHHC domain-containing cysteine-rich protein 18, DHHC-18) (Zinc finger DHHC domain-containing protein 18)	ZDHHC18	ZDHHC	18	2	2	P07550;P51809	265;183
+Homo sapiens	PAT	Q8WVZ1	ZDH19_HUMAN	Palmitoyltransferase ZDHHC19, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 19, DHHC-19)	ZDHHC19	ZDHHC	19	2	2		
+Homo sapiens	PAT	Q9C0B5	ZDHC5_HUMAN	Palmitoyltransferase ZDHHC5, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 5, DHHC-5) (Zinc finger protein 375)	ZDHHC5	ZDHHC	5	25	19	P21453;Q14254;O00168;P09958;Q16549;Q9NS61;Q2TAP0;Q07065;P32418	328,329,331;4,19,20;60,62;771;699,704;46;33,78,81,90,141;100;773
+Homo sapiens	PAT	Q9NXF8	ZDHC7_HUMAN	Palmitoyltransferase ZDHHC7, EC 2.3.1.225 (Acyltransferase ZDHHC7, EC 2.3.1.-) (Zinc finger DHHC domain-containing protein 7, DHHC-7)	ZDHHC7	ZDHHC	7	28	24	Q9NXR1;Q9GZM8;P25445;Q14160;Q9BX67;P21818;P05067;P60880;P40763;O95372	274;273;199;4,10;264,265;22,24;186,187;85,88,90,92;108;2
+Homo sapiens	PAT	Q9NPG8	ZDHC4_HUMAN	Palmitoyltransferase ZDHHC4, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 4, DHHC-4) (Zinc finger protein 374)	ZDHHC4	ZDHHC	4	5	5	P14416	443
+Mus musculus	PAT	Q9D6H5	ZDHC4_MOUSE	Palmitoyltransferase ZDHHC4, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 4, DHHC-4)	Zdhhc4	ZDHHC	4	3	3		
+Mus musculus	PAT	Q5Y5T2	ZDH18_MOUSE	Palmitoyltransferase ZDHHC18, EC 2.3.1.225 (DHHC domain-containing cysteine-rich protein 18, DHHC-18) (Zinc finger DHHC domain-containing protein 18)	Zdhhc18	ZDHHC	18	0	0		
+Mus musculus	PAT	P59267	ZDHC2_MOUSE	Palmitoyltransferase ZDHHC2, EC 2.3.1.225 (Acyltransferase ZDHHC2, EC 2.3.1.-) (Zinc finger DHHC domain-containing protein 2, DHHC-2)	Zdhhc2	ZDHHC	2	17	12	O60603;P42082;Q01726;Q8N4C7;P23977	609;264;315;284,285,287,288,290,291;580
+Homo sapiens	PAT	Q9Y397	ZDHC9_HUMAN	Palmitoyltransferase ZDHHC9, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 9, DHHC-9, DHHC9) (Zinc finger protein 379) (Zinc finger protein 380)	ZDHHC9	ZDHHC	9	9	7	P07550;Q9NZQ7;P17081	265;272;198,201
+Homo sapiens	PAT	Q9UIJ5	ZDHC2_HUMAN	Palmitoyltransferase ZDHHC2, EC 2.3.1.225 (Acyltransferase ZDHHC2, EC 2.3.1.-) (Reduced expression associated with metastasis protein, Ream) (Reduced expression in cancer protein, Rec) (Zinc finger DHHC domain-containing protein 2, DHHC-2) (Zinc finger protein 372)	ZDHHC2	ZDHHC	2	25	16	Q9GZM8;Q9NXR1;P23977;P21818;Q07065	273;274;580;22,24;100
+Homo sapiens	PAT	Q9ULC8	ZDHC8_HUMAN	Palmitoyltransferase ZDHHC8, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 8, DHHC-8) (Zinc finger protein 378)	ZDHHC8	ZDHHC	8	11	10	Q62083;Q925T6-2;P14416	414;11;443
+Homo sapiens	PAT	Q9H8X9	ZDH11_HUMAN	Palmitoyltransferase ZDHHC11, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 11, DHHC-11) (Zinc finger protein 399)	ZDHHC11	ZDHHC	11	3	3	Q8TDD5	549,550,551
+Mus musculus	PAT	Q5Y5T5	ZDHC8_MOUSE	Palmitoyltransferase ZDHHC8, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 8, DHHC-8)	Zdhhc8	ZDHHC	8	12	6	Q62083;Q925T6-2;Q62108	414;11;3,5
+Homo sapiens	PAT	Q8N966	ZDH22_HUMAN	Palmitoyltransferase ZDHHC22, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 22, DHHC-22, zDHHC22)	ZDHHC22	ZDHHC	22	1	1	P48745	244
+Rattus norvegicus	PAT	Q2THW7	ZDHC5_RAT	Palmitoyltransferase ZDHHC5, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 5, DHHC-5)	Zdhhc5	ZDHHC	5	2	2		
+Rattus norvegicus	PAT	Q76IC6	ZDH23_RAT	Palmitoyltransferase ZDHHC23, EC 2.3.1.225 (NNOS-interacting DHHC domain-containing protein with dendritic mRNA) (Zinc finger DHHC domain-containing protein 23, DHHC-23, zDHHC23)	Zdhhc23	ZDHHC	23	0	0		
+Bos taurus	PAT	Q58DA8	ZDHC9_BOVIN	Palmitoyltransferase ZDHHC9, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 9, DHHC-9)	ZDHHC9	ZDHHC	9	0	0		
+Arabidopsis thaliana	PAT	Q9SB58	ZDH19_ARATH	Protein S-acyltransferase 8, EC 2.3.1.225 (Probable palmitoyltransferase At4g24630) (Zinc finger DHHC domain-containing protein At4g24630)	PAT08	ZDHHC	8	0	0		
+Mus musculus	PAT	Q8R173	ZDHC3_MOUSE	Palmitoyltransferase ZDHHC3, EC 2.3.1.225 (Acyltransferase ZDHHC3, EC 2.3.1.-) (GABA-A receptor-associated membrane protein 1) (Golgi-specific DHHC zinc finger protein) (Zinc finger DHHC domain-containing protein 3, DHHC-3)	Zdhhc3	ZDHHC	3	55	42	P23818;P23819;Q9EQ27;Q07812;O60603;P42082;P50897;P50148;Q8IZ81;Q3TBT3;P06837;D3Z291;Q01726;Q8N4C7	603;610;12,13;126;609;264;6;9,10;94,98;88,91;3,4;100,207;315;284,285,287,288,290,291
+Mus musculus	PAT	Q9ESG8	ZDH16_MOUSE	Palmitoyltransferase ZDHHC16, EC 2.3.1.225 (Abl-philin 2) (Zinc finger DHHC domain-containing protein 16, DHHC-16)	Zdhhc16	ZDHHC	16	2	1	P61014	36
+Mus musculus	PAT	Q6IR37	ZDH24_MOUSE	Probable palmitoyltransferase ZDHHC24, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 24)	Zdhhc24	ZDHHC	24	0	0		
+Bos taurus	PAT	Q58DT3	ZDHC4_BOVIN	Palmitoyltransferase ZDHHC4, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 4, DHHC-4)	ZDHHC4	ZDHHC	4	0	0		
+Mus musculus	PAT	Q8R0N9	ZDHC1_MOUSE	Palmitoyltransferase ZDHHC1, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 1)	Zdhhc1	ZDHHC	1	1	1		
+Homo sapiens	PAT	Q8IUH5	ZDH17_HUMAN	Palmitoyltransferase ZDHHC17, EC 2.3.1.225 (Acyltransferase ZDHHC17, EC 2.3.1.-) (DHHC domain-containing cysteine-rich protein 17, DHHC17) (Huntingtin yeast partner H) (Huntingtin-interacting protein 14, HIP-14) (Huntingtin-interacting protein 3, HIP-3) (Huntingtin-interacting protein H) (Putative MAPK-activating protein PM11) (Putative NF-kappa-B-activating protein 205) (Zinc finger DHHC domain-containing protein 17)	ZDHHC17	ZDHHC	17	29	22	P42858;P55212;P60880;Q09470;P17861-2;Q12852;P32418	212;264,277;85,88,90,92;243;325,331,339;403;765
+Homo sapiens	PAT	Q969W1	ZDH16_HUMAN	Palmitoyltransferase ZDHHC16, EC 2.3.1.225 (Abl-philin 2) (Zinc finger DHHC domain-containing protein 16, DHHC-16)	ZDHHC16	ZDHHC	16	4	1	Q9H6R6	328,329,343
+Arabidopsis thaliana	PAT	Q5M757	ZDH15_ARATH	Probable protein S-acyltransferase 12, EC 2.3.1.225 (Probable palmitoyltransferase At4g00840) (Zinc finger DHHC domain-containing protein At4g00840)	PAT12	ZDHHC	12	0	0		
+Drosophila melanogaster	PAT	Q9VUW9	HIP14_DROME	Palmitoyltransferase Hip14, EC 2.3.1.225 (Huntingtin-interacting protein 14 homolog)	Hip14			2	2	Q5U110	556
+Arabidopsis thaliana	PAT	Q3EC11	ZDHC2_ARATH	Probable protein S-acyltransferase 23, EC 2.3.1.225 (Probable palmitoyltransferase At2g14255) (Zinc finger DHHC domain-containing protein At2g14255)	PAT23	ZDHHC	23	0	0		
+Xenopus laevis	APT	Q6DCC5	AB17B_XENLA	Alpha/beta hydrolase domain-containing protein 17B, Abhydrolase domain-containing protein 17B, EC 3.1.2.22	abhd17b	ABHD	17	0	0		
+Homo sapiens	APT	O95372	LYPA2_HUMAN	Acyl-protein thioesterase 2, APT-2, EC 3.1.2.- (Lysophospholipase II, LPL-II, LysoPLA II) (Palmitoyl-protein hydrolase, EC 3.1.2.22)	LYPLA2	LYPLA	2	15	13	Q14654;P40763;P32418	166;108;765
+Homo sapiens	APT	A0A0G2JI89	A0A0G2JI89_HUMAN	Phosphatidylserine lipase ABHD16A	ABHD16A	ABHD	16	0	0		
+Homo sapiens	APT	F2Z3H2	F2Z3H2_HUMAN	Phosphatidylserine lipase ABHD16A	ABHD16A	ABHD	16	0	0		
+Rattus norvegicus	APT	Q5XIJ5	AB17A_RAT	Alpha/beta hydrolase domain-containing protein 17A, Abhydrolase domain-containing protein 17A, EC 3.1.2.22	Abhd17a	ABHD	17	6	2		
+Mus musculus	PAT	Q80TN5	ZDH17_MOUSE	Palmitoyltransferase ZDHHC17, EC 2.3.1.225 (Acyltransferase ZDHHC17, EC 2.3.1.-) (DHHC domain-containing cysteine-rich protein 17, DHHC-17) (Huntingtin-interacting protein 14) (Zinc finger DHHC domain-containing protein 17)	Zdhhc17	ZDHHC	17	23	20	Q9EQ27;Q01726;Q01097;Q60700	12,13;315;1215,1218,1239,1242,1245;436
+Arabidopsis thaliana	PAT	Q52T38	ZDH22_ARATH	Protein S-acyltransferase 24, EC 2.3.1.225 (Ankyrin repeat-containing S-palmitoyltransferase) (Palmitoyltransferase TIP1) (Protein TIP GROWTH DEFECTIVE 1, AtTIP1) (Zinc finger DHHC domain-containing protein TIP1)	PAT24	ZDHHC	24	1	1	Q52T38	401
+Caenorhabditis elegans	PAT	Q8I0G4	ZDHC4_CAEEL	Zinc finger DHHC domain-containing protein 4	dhhc-4	ZDHHC	4	0	0		
+Homo sapiens	APT	Q7L211	ABHDD_HUMAN	Protein ABHD13, EC 3.-.-.- (Alpha/beta hydrolase domain-containing protein 13, Abhydrolase domain-containing protein 13)	ABHD13	ABHD	13	1	1		
+Homo sapiens	PAT	Q8IVQ6	ZDH21_HUMAN	Palmitoyltransferase ZDHHC21, EC 2.3.1.225 (DHHC domain-containing cysteine-rich protein 21, DHHC-21) (Zinc finger DHHC domain-containing protein 21)	ZDHHC21	ZDHHC	21	13	10	P29474;P21818;P05067	15,26;22,24;186,187
+Homo sapiens	PAT	Q9H6R6	ZDHC6_HUMAN	Palmitoyltransferase ZDHHC6, EC 2.3.1.225 (Stearoyltransferase ZDHHC6, EC 2.3.1.-) (Transmembrane protein H4) (Zinc finger DHHC domain-containing protein 6, DHHC-6) (Zinc finger protein 376)	ZDHHC6	ZDHHC	6	15	10	P27824;Q99836;P17861-2	502,503;113,274;325,331,339
+Arabidopsis thaliana	PAT	Q94C49	ZDH18_ARATH	Probable protein S-acyltransferase 13, EC 2.3.1.225 (Probable palmitoyltransferase At4g22750) (Zinc finger DHHC domain-containing protein At4g22750)	PAT13	ZDHHC	13	1	1	Q66GP9	107,108
+Homo sapiens	PAT	Q8WTX9	ZDHC1_HUMAN	Palmitoyltransferase ZDHHC1, EC 2.3.1.225 (DHHC domain-containing cysteine-rich protein 1) (Zinc finger DHHC domain-containing protein 1, DHHC-1) (Zinc finger protein 377)	ZDHHC1	ZDHHC	1	5	4	Q8TDD5;P17861-2	549,550,551;325,331,339
+Homo sapiens	PAT	Q5W0Z9	ZDH20_HUMAN	Palmitoyltransferase ZDHHC20, EC 2.3.1.225 (Acyltransferase ZDHHC20, EC 2.3.1.-) (DHHC domain-containing cysteine-rich protein 20, DHHC20) (Zinc finger DHHC domain-containing protein 20)	ZDHHC20	ZDHHC	20	16	14	P00533;P69697;P51809;Q9C0B5;Q68D91;P36894	1049,1146;31;183;134,236,237;176,212,254;173,175,180
+Schizosaccharomyces pombe	PAT	O74384	ERFB_SCHPO	Palmitoyltransferase erf2 (EC 2.3.1.225) (DHHC cysteine-rich domain-containing protein erf2) (Meiotically up-regulated gene 142 protein) (Ras protein acyltransferase)	erf2	ERF	2	4	4	Q10133	196
+Drosophila melanogaster	PAT	M9PFE4	M9PFE4_DROME	Palmitoyltransferase	Hip14			0	0		
+Mus musculus	PAT	Q5Y5T3	ZDH23_MOUSE	Palmitoyltransferase ZDHHC23, EC 2.3.1.225 (DHHC-containing protein 11) (Zinc finger DHHC domain-containing protein 23, DHHC-23, zDHHC23)	Zdhhc23	ZDHHC	23	3	1	Q08460-5;Q08460	53,54,56;79
+Mus musculus	PAT	Q91WU6	ZDHC7_MOUSE	Palmitoyltransferase ZDHHC7, EC 2.3.1.225 (Acyltransferase ZDHHC7, EC 2.3.1.-) (GABA-A receptor-associated membrane protein 2) (SERZ-beta) (Zinc finger DHHC domain-containing protein 7, DHHC-7)	Zdhhc7	ZDHHC	7	31	27	P19785;Q62108;Q9EQ27;Q07812;O60603;P42082;P50897;P50148;Q3TBT3;Q9WU38;Q01726;Q8N4C7;Q8VIM4	451;3,5;12,13;126;609;264;6;9,10;88,91;43,557;315;284,285,287,288,290,291;54,56
+Mus musculus	PAT	Q8BGJ0	ZDH15_MOUSE	Palmitoyltransferase ZDHHC15, EC 2.3.1.225 (Acyltransferase ZDHHC15, EC 2.3.1.-) (Zinc finger DHHC domain-containing protein 15, DHHC-15)	Zdhhc15	ZDHHC	15	15	11	Q62108;Q99523;O60603;Q3TBT3;Q8N4C7	3,5;783;609;88,91;284,285,287,288,290,291
+Saccharomyces cerevisiae (strain ATCC 204508 / S288c)	PAT	P42836	PFA3_YEAST	Palmitoyltransferase PFA3, EC 2.3.1.225 (Protein fatty acyltransferase 3)	PFA3	PFA	3	4	2	P39968	4,5,7
+Saccharomyces cerevisiae (strain ATCC 204508 / S288c)	PAT	Q06551	ERFB_YEAST	Palmitoyltransferase ERF2, EC 2.3.1.225 (DHHC cysteine-rich domain-containing protein ERF2) (Ras protein acyltransferase)	ERF2	ERF	2	13	9	Q06551	203
+Homo sapiens	PAT	Q8IYP9	ZDH23_HUMAN	Palmitoyltransferase ZDHHC23, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 23, DHHC-23, zDHHC23)	ZDHHC23	ZDHHC	23	1	1		
+Homo sapiens	PAT	Q96MV8	ZDH15_HUMAN	Palmitoyltransferase ZDHHC15, EC 2.3.1.225 (Acyltransferase ZDHHC15, EC 2.3.1.-) (Zinc finger DHHC domain-containing protein 15, DHHC-15)	ZDHHC15	ZDHHC	15	9	8	P21818	22,24
+Saccharomyces cerevisiae (strain ATCC 204508 / S288c)	PAT	Q12006	PFA4_YEAST	Palmitoyltransferase PFA4, EC 2.3.1.225 (Protein S-acyltransferase, PAT) (Protein fatty acyltransferase 4)	PFA4	PFA	4	12	12		
+Mus musculus	PAT	P59268	ZDHC9_MOUSE	Palmitoyltransferase ZDHHC9, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 9, DHHC-9, DHHC9)	Zdhhc9	ZDHHC	9	2	2	Q9EQ27;Q9EP73	12,13;272
+Mus musculus	PAT	Q810M5	ZDH19_MOUSE	Palmitoyltransferase ZDHHC19, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 19, DHHC-19)	Zdhhc19	ZDHHC	19	1	1		
+Mus musculus	PAT	Q9D270	ZDH21_MOUSE	Palmitoyltransferase ZDHHC21, EC 2.3.1.225 (DHHC domain-containing cysteine-rich protein 21, DHHC21) (GABA-A receptor-associated membrane protein 3) (Zinc finger DHHC domain-containing protein 21)	Zdhhc21	ZDHHC	21	8	7	P19785;Q07812;Q9Z1B3	451;126;17
+Mus musculus	PAT	Q14AK4	ZDH11_MOUSE	Palmitoyltransferase ZDHHC11, EC 2.3.1.225 (DHHC-containing protein 10, DHHC10(z11)) (Zinc finger DHHC domain-containing protein 11, DHHC-11)	Zdhhc11	ZDHHC	11	3	3	Q07812;Q8N4C7	126;284,285,287,288,290,291
+Mus musculus	PAT	Q5Y5T1	ZDH20_MOUSE	Palmitoyltransferase ZDHHC20, EC 2.3.1.225 (Acyltransferase ZDHHC20, EC 2.3.1.-) (DHHC domain-containing cysteine-rich protein 20, DHHC-20) (Zinc finger DHHC domain-containing protein 20)	Zdhhc20	ZDHHC	20	3	3	D3Z291	100,207
+Mus musculus	PAT	Q8VDZ4	ZDHC5_MOUSE	Palmitoyltransferase ZDHHC5, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 5, DHHC-5)	Zdhhc5	ZDHHC	5	10	7	Q925T6-2;Q14254;Q9EQ27;O08858	11;4,20;12,13;319
+Mus musculus	PAT	Q8VC90	ZDH12_MOUSE	Palmitoyltransferase ZDHHC12, EC 2.3.1.225 (DHHC domain-containing cysteine-rich protein 12, DHHC-12) (Zinc finger DHHC domain-containing protein 12)	Zdhhc12	ZDHHC	12	3	3	Q07812;Q03555-4;Q8N4C7	126;212,284;284,285,287,288,290,291
+Mus musculus	PAT	Q9CPV7	ZDHC6_MOUSE	Palmitoyltransferase ZDHHC6, EC 2.3.1.225 (Stearoyltransferase ZDHHC6, EC 2.3.1.-) (Zinc finger DHHC domain-containing protein 6, DHHC-6)	Zdhhc6	ZDHHC	6	3	3	P29994;O60603;P42082	56,849;609;264
+Arabidopsis thaliana	PAT	Q8VYP5	ZDH14_ARATH	Probable protein S-acyltransferase 14, EC 2.3.1.225 (Probable palmitoyltransferase At3g60800) (Zinc finger DHHC domain-containing protein At3g60800)	PAT14	ZDHHC	14	2	2	Q66GP9;Q8VYP5	107,108;157
+Rattus norvegicus	PAT	Q2TGK5	Q2TGK5_RAT	Palmitoyltransferase	Zdhhc1	ZDHHC	1	2	2	O15492	2,12,98
+Rattus norvegicus	PAT	Q923G5	ZDHC7_RAT	Palmitoyltransferase ZDHHC7, EC 2.3.1.225 (Acyltransferase ZDHHC7, EC 2.3.1.-) (Sertoli cell gene with a zinc finger domain protein) (Zinc finger DHHC domain-containing protein 7, DHHC7)	Zdhhc7	ZDHHC	7	3	3	P60881;P31016	85,88,90,92;3,5
+Rattus norvegicus	PAT	Q9JKR5	ZDHC2_RAT	Palmitoyltransferase ZDHHC2, EC 2.3.1.225 (Acyltransferase ZDHHC2, EC 2.3.1.-) (Zinc finger DHHC domain-containing protein 2, DHHC-2)	Zdhhc2	ZDHHC	2	2	1	P31016	3,5
+Mus musculus	PAT	A0PK84	ZDH22_MOUSE	Palmitoyltransferase ZDHHC22, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 22, DHHC-22, zDHHC22)	Zdhhc22	ZDHHC	22	1	1	Q08460-5	53,54,56
+Homo sapiens	PAT	Q6UX98	ZDH24_HUMAN	Probable palmitoyltransferase ZDHHC24, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 24)	ZDHHC24	ZDHHC	24	2	2		
+Homo sapiens	PAT	Q9NYG2	ZDHC3_HUMAN	Palmitoyltransferase ZDHHC3, EC 2.3.1.225 (Acyltransferase ZDHHC3, EC 2.3.1.-) (Protein DHHC1) (Zinc finger DHHC domain-containing protein 3, DHHC-3)	ZDHHC3	ZDHHC	3	35	27	Q9NXR1;Q9GZM8;P49798;P14416;Q14160;P21818;Q8VIM4;P40763;O95372	274;273;2;443;4,10;22,24;54,56;108;2
+Homo sapiens	PAT	Q8IZN3	ZDH14_HUMAN	Palmitoyltransferase ZDHHC14, EC 2.3.1.225 (DHHC domain-containing cysteine-rich protein 14, DHHC-14) (NEW1 domain-containing protein, NEW1CP) (Zinc finger DHHC domain-containing protein 14)	ZDHHC14	ZDHHC	14	4	4	P07550;Q12852	265;403
+Drosophila melanogaster	PAT	A2VEY9	APP_DROME	Palmitoyltransferase app, EC 2.3.1.225 (Protein approximated)	app			2	2	P33450	4938,4987
+Homo sapiens	PAT	Q96GR4	ZDH12_HUMAN	Palmitoyltransferase ZDHHC12, EC 2.3.1.225 (DHHC domain-containing cysteine-rich protein 12, DHHC-12) (Zinc finger DHHC domain-containing protein 12) (Zinc finger protein 400)	ZDHHC12	ZDHHC	12	2	2	O15551	181,182,184
+Homo sapiens	PAT	P0C7U3	ZH11B_HUMAN	Probable palmitoyltransferase ZDHHC11B, EC 2.3.1.225 (Zinc finger DHHC domain-containing protein 11B, DHHC-11B)	ZDHHC11B	ZDHHC	11	0	0		
+Mus musculus	APT	Q80YU0	ABHGB_MOUSE	Protein ABHD16B, EC 3.-.-.- (Alpha/beta hydrolase domain-containing protein 16B, Abhydrolase domain-containing protein 16B)	Abhd16b	ABHD	16	0	0		
+Homo sapiens	APT	O75608	LYPA1_HUMAN	Acyl-protein thioesterase 1, APT-1, hAPT1, EC 3.1.2.- (Lysophospholipase 1) (Lysophospholipase I, LPL-I, LysoPLA I) (Palmitoyl-protein hydrolase, EC 3.1.2.22)	LYPLA1	LYPLA	1	27	23	P07550;P49757;Q08460-5;Q07065;Q14654;P32418	265;37,160,165;53,54,56;100;166;765,773
+Bos taurus	APT	F1MRZ4	F1MRZ4_BOVIN	Phosphatidylserine lipase ABHD16A (Alpha/beta hydrolase domain-containing protein 16A) (Monoacylglycerol lipase ABHD16A)	ABHD16A	ABHD	16	0	0		
+Bos taurus	APT	Q08DW9	ABD12_BOVIN	Lysophosphatidylserine lipase ABHD12, EC 3.1.-.- (2-arachidonoylglycerol hydrolase ABHD12) (Abhydrolase domain-containing protein 12) (Monoacylglycerol lipase ABHD12, EC 3.1.1.23) (Oxidized phosphatidylserine lipase ABHD12, EC 3.1.-.-)	ABHD12	ABHD	12	0	0		
+Bos taurus	APT	Q3MHR0	LYPA1_BOVIN	Acyl-protein thioesterase 1, APT-1, EC 3.1.2.- (Lysophospholipase 1) (Lysophospholipase I, LPL-I, LysoPLA I) (Palmitoyl-protein hydrolase, EC 3.1.2.22)	LYPLA1	LYPLA	1	0	0		
+Homo sapiens	APT	F2Z3G6	F2Z3G6_HUMAN	Phosphatidylserine lipase ABHD16A	ABHD16A	ABHD	16	0	0		
+Rattus norvegicus	APT	Q5XIL6	ABHGB_RAT	Protein ABHD16B, EC 3.-.-.- (Alpha/beta hydrolase domain-containing protein 16B, Abhydrolase domain-containing protein 16B)	Abhd16b	ABHD	16	0	0		
+Mus musculus	APT	Q8VCV1	AB17C_MOUSE	Alpha/beta hydrolase domain-containing protein 17C, Abhydrolase domain-containing protein 17C, EC 3.1.2.22	Abhd17c	ABHD	17	2	1		
+Mus musculus	APT	Q99JW1	AB17A_MOUSE	Alpha/beta hydrolase domain-containing protein 17A, Abhydrolase domain-containing protein 17A, EC 3.1.2.22	Abhd17a	ABHD	17	0	0		
+Mus musculus	APT	Q9Z1Q2	ABHGA_MOUSE	Phosphatidylserine lipase ABHD16A, EC 3.1.-.- (Alpha/beta hydrolase domain-containing protein 16A, Abhydrolase domain-containing protein 16A) (HLA-B-associated transcript 5, mBAT5) (Monoacylglycerol lipase ABHD16A, EC 3.1.1.23)	Abhd16a	ABHD	16	0	0		
+Rattus norvegicus	APT	Q6MG55	ABHGA_RAT	Phosphatidylserine lipase ABHD16A, EC 3.1.-.- (Alpha/beta hydrolase domain-containing protein 16A, Abhydrolase domain-containing protein 16A) (HLA-B-associated transcript 5 homolog) (Monoacylglycerol lipase ABHD16A, EC 3.1.1.23)	Abhd16a	ABHD	16	0	0		
+Homo sapiens	APT	P50897	PPT1_HUMAN	Palmitoyl-protein thioesterase 1, PPT-1, EC 3.1.2.22 (Palmitoyl-protein hydrolase 1)	PPT1	PPT	1	1	1	P32418	765
+Bos taurus	APT	P45478	PPT1_BOVIN	Palmitoyl-protein thioesterase 1, PPT-1, EC 3.1.2.22 (Palmitoyl-protein hydrolase 1)	PPT1	PPT	1	3	3		
+Homo sapiens	APT	Q8N2K0	ABD12_HUMAN	Lysophosphatidylserine lipase ABHD12, EC 3.1.-.- (2-arachidonoylglycerol hydrolase ABHD12) (Abhydrolase domain-containing protein 12, hABHD12) (Monoacylglycerol lipase ABHD12, EC 3.1.1.23) (Oxidized phosphatidylserine lipase ABHD12, EC 3.1.-.-)	ABHD12	ABHD	12	0	0		
+Mus musculus	APT	P97823	LYPA1_MOUSE	Acyl-protein thioesterase 1, APT-1, EC 3.1.2.- (Lysophospholipase 1) (Lysophospholipase I, LPL-I, LysoPLA I) (Palmitoyl-protein hydrolase, EC 3.1.2.22)	Lypla1	LYPLA	1	2	1		
+Mus musculus	APT	O88531	PPT1_MOUSE	Palmitoyl-protein thioesterase 1, PPT-1, EC 3.1.2.22 (Palmitoyl-protein hydrolase 1)	Ppt1	PPT	1	3	3		
+Rattus norvegicus	APT	P70470	LYPA1_RAT	Acyl-protein thioesterase 1, APT-1, EC 3.1.2.- (Lysophospholipase 1) (Lysophospholipase I, LPL-I, LysoPLA I) (Palmitoyl-protein hydrolase, EC 3.1.2.22)	Lypla1	LYPLA	1	9	6		
+Rattus norvegicus	APT	P45479	PPT1_RAT	Palmitoyl-protein thioesterase 1, PPT-1, EC 3.1.2.22 (Palmitoyl-protein hydrolase 1)	Ppt1	PPT	1	0	0		
+Rattus norvegicus	APT	Q6AYT7	ABD12_RAT	Lysophosphatidylserine lipase ABHD12, EC 3.1.-.- (2-arachidonoylglycerol hydrolase ABHD12) (Abhydrolase domain-containing protein 12) (Monoacylglycerol lipase ABHD12, EC 3.1.1.23) (Oxidized phosphatidylserine lipase ABHD12, EC 3.1.-.-)	Abhd12	ABHD	12	1	1		
+Danio rerio	APT	Q08C93	ABD12_DANRE	Lysophosphatidylserine lipase ABHD12, EC 3.1.-.- (2-arachidonoylglycerol hydrolase ABHD12) (Abhydrolase domain-containing protein 12) (Monoacylglycerol lipase ABHD12, EC 3.1.1.23) (Oxidized phosphatidylserine lipase ABHD12, EC 3.1.-.-)	abhd12	ABHD	12	0	0		
+Caenorhabditis elegans	APT	Q20390	PPT1_CAEEL	Palmitoyl-protein thioesterase 1, PPT-1, EC 3.1.2.22 (Palmitoyl-protein hydrolase 1)	ppt-1	PPT	1	0	0		
+Gallus gallus	APT	Q5ZIN0	ABD12_CHICK	Lysophosphatidylserine lipase ABHD12, EC 3.1.-.- (2-arachidonoylglycerol hydrolase ABHD12) (Abhydrolase domain-containing protein 12) (Monoacylglycerol lipase ABHD12, EC 3.1.1.23) (Oxidized phosphatidylserine lipase ABHD12, EC 3.1.-.-)	ABHD12	ABHD	12	0	0		
+Xenopus laevis	APT	Q6IRP4	ABHDD_XENLA	Protein ABHD13, EC 3.-.-.- (Alpha/beta hydrolase domain-containing protein 13, Abhydrolase domain-containing protein 13)	abhd13	ABHD	13	0	0		
+Danio rerio	APT	Q32LS6	ABHDD_DANRE	Protein ABHD13, EC 3.-.-.- (Alpha/beta hydrolase domain-containing protein 13, Abhydrolase domain-containing protein 13)	abhd13	ABHD	13	0	0		
+Gallus gallus	APT	Q5ZJL8	ABHDD_CHICK	Protein ABHD13, EC 3.-.-.- (Alpha/beta hydrolase domain-containing protein 13, Abhydrolase domain-containing protein 13)	ABHD13	ABHD	13	0	0		
+Drosophila melanogaster	APT	Q9W3C7	PPT1_DROME	Palmitoyl-protein thioesterase 1, PPT-1, EC 3.1.2.22 (Palmitoyl-protein hydrolase 1)	Ppt1	PPT	1	0	0		
+Homo sapiens	APT	Q7Z5M8	AB12B_HUMAN	Protein ABHD12B, EC 3.-.-.- (Abhydrolase domain-containing protein 12B) (Alpha/beta hydrolase domain-containing protein 12B)	ABHD12B	ABHD	12	0	0		
+Bos taurus	APT	F1MYM8	F1MYM8_BOVIN	Alpha/beta hydrolase domain-containing protein 17A	ABHD17A	ABHD	17	0	0		
+Rattus norvegicus	APT	Q9QYL8	LYPA2_RAT	Acyl-protein thioesterase 2, APT-2, EC 3.1.2.- (Lysophospholipase 2) (Lysophospholipase II, LPL-II, LysoPLA II) (Palmitoyl-protein hydrolase, EC 3.1.2.22)	Lypla2	LYPLA	2	3	2		
+Mus musculus	APT	Q7M759	AB17B_MOUSE	Alpha/beta hydrolase domain-containing protein 17B, Abhydrolase domain-containing protein 17B, EC 3.1.2.22	Abhd17b	ABHD	17	0	0		
+Mus musculus	APT	Q99LR1	ABD12_MOUSE	Lysophosphatidylserine lipase ABHD12, EC 3.1.1.- (2-arachidonoylglycerol hydrolase ABHD12) (Abhydrolase domain-containing protein 12) (Monoacylglycerol lipase ABHD12, EC 3.1.1.23) (Oxidized phosphatidylserine lipase ABHD12, EC 3.1.-.-)	Abhd12	ABHD	12	0	0		
+Mus musculus	APT	Q80UX8	ABHDD_MOUSE	Protein ABHD13, EC 3.-.-.- (Alpha/beta hydrolase domain-containing protein 13, Abhydrolase domain-containing protein 13)	Abhd13	ABHD	13	0	0		
+Gallus gallus	APT	Q5ZJ01	AB17B_CHICK	Alpha/beta hydrolase domain-containing protein 17B, Abhydrolase domain-containing protein 17B, EC 3.1.2.22	ABHD17B	ABHD	17	0	0		
+Mus musculus	APT	Q9WTL7	LYPA2_MOUSE	Acyl-protein thioesterase 2, APT-2, EC 3.1.2.- (Lysophospholipase 2) (Lysophospholipase II, LPL-II, LysoPLA II, mLyso II) (Palmitoyl-protein hydrolase, EC 3.1.2.22)	Lypla2	LYPLA	2	0	0		
+Bos taurus	APT	Q2HJ19	AB17A_BOVIN	Alpha/beta hydrolase domain-containing protein 17A, Abhydrolase domain-containing protein 17A, EC 3.1.2.22	ABHD17A	ABHD	17	0	0		
+Oryctolagus cuniculus	APT	O77821	LYPA1_RABIT	Acyl-protein thioesterase 1, APT-1, EC 3.1.2.- (Calcium-independent phospholipase A2, CaIPLA2) (Lysophospholipase 1) (Lysophospholipase I, LPL-I, LysoPLA I) (Palmitoyl-protein hydrolase, EC 3.1.2.22)	LYPLA1	LYPLA	1	0	0		
+Gallus gallus	APT	Q5ZJX1	AB17C_CHICK	Alpha/beta hydrolase domain-containing protein 17C, Abhydrolase domain-containing protein 17C, EC 3.1.2.22	ABHD17C	ABHD	17	0	0		
+Bos taurus	APT	A5PKD9	AB17C_BOVIN	Alpha/beta hydrolase domain-containing protein 17C, Abhydrolase domain-containing protein 17C, EC 3.1.2.22	ABHD17C	ABHD	17	0	0		
+Homo sapiens	APT	F2Z3Q3	F2Z3Q3_HUMAN	Phosphatidylserine lipase ABHD16A	ABHD16A	ABHD	16	0	0		
+Homo sapiens	APT	Q9H3Z7	ABHGB_HUMAN	Protein ABHD16B, EC 3.-.-.- (Alpha/beta hydrolase domain-containing protein 16B, Abhydrolase domain-containing protein 16B)	ABHD16B	ABHD	16	0	0		
+Rattus norvegicus	APT	Q6AY17	AB17B_RAT	Alpha/beta hydrolase domain-containing protein 17B, Abhydrolase domain-containing protein 17B, EC 3.1.2.22	Abhd17b	ABHD	17	11	4		
+Homo sapiens	APT	Q5VST6	AB17B_HUMAN	Alpha/beta hydrolase domain-containing protein 17B, Abhydrolase domain-containing protein 17B, EC 3.1.2.22	ABHD17B	ABHD	17	3	2		
+Homo sapiens	APT	A0A0G2JJD3	A0A0G2JJD3_HUMAN	Phosphatidylserine lipase ABHD16A (Alpha/beta hydrolase domain-containing protein 16A) (Monoacylglycerol lipase ABHD16A)	ABHD16A	ABHD	16	0	0		
+Cricetulus griseus	PAT	G3I4K0	G3I4K0_CRIGR	Putative palmitoyltransferase ZDHHC24	NA	ZDHHC	24	0	0		
+Sus scrofa	PAT	Q9TUF6	Q9TUF6_PIG	Long-chain 3-ketoacyl-CoA thiolase	LCTHIO			2	2	O15492	2,12,98
+Homo sapiens	PAT	H7C365	H7C365_HUMAN	Palmitoyltransferase ZDHHC3	ZDHHC3	ZDHHC	3	0	0		
+Homo sapiens	PAT	O15498	YKT6_HUMAN	Synaptobrevin homolog YKT6, EC 2.3.1.-	YKT6			1	1	O15498	194,195
+Homo sapiens	PAT	H0YIK0	H0YIK0_HUMAN	Palmitoyltransferase ZDHHC17	ZDHHC17	ZDHHC	17	0	0		
+Mus musculus	PAT	E0CYB8	E0CYB8_MOUSE	Probable palmitoyltransferase ZDHHC24	Zdhhc24	ZDHHC	24	0	0		
+Mus musculus	PAT	E0CY85	E0CY85_MOUSE	Palmitoyltransferase ZDHHC4	Zdhhc4	ZDHHC	4	0	0		
+Homo sapiens	PAT	H0YI74	H0YI74_HUMAN	Palmitoyltransferase ZDHHC17	ZDHHC17	ZDHHC	17	0	0		
+Cricetulus griseus	PAT	G3GSM4	G3GSM4_CRIGR	Putative palmitoyltransferase ZDHHC19	NA	ZDHHC	19	0	0		
+Mus musculus	PAT	D6RDS4	D6RDS4_MOUSE	Palmitoyltransferase ZDHHC3	Zdhhc3	ZDHHC	3	0	0		
+Mus musculus	PAT	D6RHS2	D6RHS2_MOUSE	Palmitoyltransferase ZDHHC3	Zdhhc3	ZDHHC	3	0	0		
+Mus musculus	PAT	M0QWP4	M0QWP4_MOUSE	Palmitoyltransferase ZDHHC4	Zdhhc4	ZDHHC	4	0	0		
+Mus musculus	PAT	Q3TRB3	Q3TRB3_MOUSE	Uncharacterized protein	Zdhhc17	ZDHHC	17	0	0		
+Mus musculus	PAT	E0CXP7	E0CXP7_MOUSE	Palmitoyltransferase ZDHHC4	Zdhhc4	ZDHHC	4	0	0		
+Mus musculus	PAT	Q5SRN8	Q5SRN8_MOUSE	Palmitoyltransferase ZDHHC21	Zdhhc21	ZDHHC	21	0	0		
+Bos taurus	PAT	Q2YDJ1	Q2YDJ1_BOVIN	Zinc finger, DHHC-type containing 1	ZDHHC1	ZDHHC	1	0	0		
+Mus musculus	PAT	D6RFV6	D6RFV6_MOUSE	Palmitoyltransferase ZDHHC3	Zdhhc3	ZDHHC	3	0	0		
+Mus musculus	PAT	E0CZ11	E0CZ11_MOUSE	Probable palmitoyltransferase ZDHHC24	Zdhhc24	ZDHHC	24	0	0		
+Homo sapiens	PAT	G3V3N3	G3V3N3_HUMAN	Palmitoyltransferase ZDHHC22	ZDHHC22	ZDHHC	22	0	0		
+Xenopus laevis	PAT	Q6DCL3	Q6DCL3_XENLA	Palmitoyltransferase	zdhhc3.L			1	1		
+Homo sapiens	PAT	F8VX48	F8VX48_HUMAN	Palmitoyltransferase ZDHHC17	ZDHHC17	ZDHHC	17	0	0		
+Homo sapiens	PAT	C9JPJ8	C9JPJ8_HUMAN	Palmitoyltransferase ZDHHC23	ZDHHC23	ZDHHC	23	0	0		
+Homo sapiens	PAT	O43617	TPPC3_HUMAN	Trafficking protein particle complex subunit 3 (BET3 homolog)	TRAPPC3			1	1	O43617	68
+Homo sapiens	PAT	P53816	PLAT3_HUMAN	Phospholipase A and acyltransferase 3, EC 2.3.1.-, EC 3.1.1.32, EC 3.1.1.4 (Adipose-specific phospholipase A2, AdPLA) (Group XVI phospholipase A1/A2) (H-rev 107 protein homolog, H-REV107, HREV107-1) (HRAS-like suppressor 1) (HRAS-like suppressor 3, HRSL3) (HREV107-3) (Renal carcinoma antigen NY-REN-65)	PLA2G16			1	1		
+Saccharomyces cerevisiae (strain ATCC 204508 / S288c)	PAT	P39010	AKR1_YEAST	Palmitoyltransferase AKR1, EC 2.3.1.225 (Ankyrin repeat-containing protein AKR1)	AKR1	AKR	1	13	10	P23292	545,546
+Homo sapiens	PAT	Q8IUH4	ZDH13_HUMAN	Palmitoyltransferase ZDHHC13, EC 2.3.1.225 (Huntingtin-interacting protein 14-related protein, HIP14-related protein) (Huntingtin-interacting protein HIP3RP) (Putative MAPK-activating protein PM03) (Putative NF-kappa-B-activating protein 209) (Zinc finger DHHC domain-containing protein 13, DHHC-13)	ZDHHC13	ZDHHC	13	8	7	Q12852	403
+Schizosaccharomyces pombe	PAT	Q10182	ERFD_SCHPO	Ras modification protein erf4 (Meiotically up-regulated gene 91 protein)	erf4	ERF	4	1	1		
+Homo sapiens	PAT	Q15562	TEAD2_HUMAN	Transcriptional enhancer factor TEF-4 (TEA domain family member 2, TEAD-2)	TEAD2			2	1		
+Mus musculus	PAT	Q8BMT9	HHAT_MOUSE	Protein-cysteine N-palmitoyltransferase HHAT, EC 2.3.1.- (Hedgehog acyltransferase) (Skinny hedgehog protein)	Hhat	HHAT		1	1		
+Homo sapiens	PAT	F8VPW2	F8VPW2_HUMAN	Palmitoyltransferase ZDHHC17	ZDHHC17	ZDHHC	17	0	0		
+Drosophila melanogaster	PAT	Q9VZU2	HHAT_DROME	Protein-cysteine N-palmitoyltransferase Rasp, EC 2.3.1.- (Protein central missing) (Protein sightless) (Protein skinny hedgehog)	rasp			1	1	Q01083	29
+Saccharomyces cerevisiae (strain ATCC 204508 / S288c)	PAT	Q03289	PFA5_YEAST	Palmitoyltransferase PFA5, EC 2.3.1.225 (Protein fatty acyltransferase 5)	PFA5	PFA	5	3	3		
+Homo sapiens	PAT	H3BMI0	H3BMI0_HUMAN	Palmitoyltransferase ZDHHC7	ZDHHC7	ZDHHC	7	0	0		
+Saccharomyces cerevisiae (strain ATCC 204508 / S288c)	PAT	Q04629	SWF1_YEAST	Palmitoyltransferase SWF1, EC 2.3.1.225 (Spore wall formation protein 1)	SWF1	SWF	1	3	3		
+Homo sapiens	PAT	P49327	FAS_HUMAN	Fatty acid synthase, EC 2.3.1.85 (Type I fatty acid synthase) [Includes: [Acyl-carrier-protein] S-acetyltransferase, EC 2.3.1.38; [Acyl-carrier-protein] S-malonyltransferase, EC 2.3.1.39; 3-oxoacyl-[acyl-carrier-protein] synthase, EC 2.3.1.41; 3-oxoacyl-[acyl-carrier-protein] reductase, EC 1.1.1.100; 3-hydroxyacyl-[acyl-carrier-protein] dehydratase, EC 4.2.1.59; Enoyl-[acyl-carrier-protein] reductase, EC 1.3.1.39; Acyl-[acyl-carrier-protein] hydrolase, EC 3.1.2.14 ]	FASN			1	1		
+Homo sapiens	PAT	C9J5I9	C9J5I9_HUMAN	Palmitoyltransferase ZDHHC4	ZDHHC4	ZDHHC	4	0	0		
+Mus musculus	PAT	D3Z2A6	D3Z2A6_MOUSE	Palmitoyltransferase ZDHHC3	Zdhhc3	ZDHHC	3	0	0		
+Mus musculus	PAT	Q05D46	Q05D46_MOUSE	Palmitoyltransferase ZDHHC3 (Zdhhc3 protein)	Zdhhc3	ZDHHC	3	0	0		
+Mus musculus	PAT	P19096	FAS_MOUSE	Fatty acid synthase, EC 2.3.1.85 (Type I Fatty Acid Synthase) [Includes: [Acyl-carrier-protein] S-acetyltransferase, EC 2.3.1.38; [Acyl-carrier-protein] S-malonyltransferase, EC 2.3.1.39; 3-oxoacyl-[acyl-carrier-protein] synthase, EC 2.3.1.41; 3-oxoacyl-[acyl-carrier-protein] reductase, EC 1.1.1.100; 3-hydroxyacyl-[acyl-carrier-protein] dehydratase, EC 4.2.1.59; Enoyl-[acyl-carrier-protein] reductase, EC 1.3.1.39; Acyl-[acyl-carrier-protein] hydrolase, EC 3.1.2.14 ]	Fasn			1	1	P06837	3,4
+Mus musculus	PAT	Q9CWU2	ZDH13_MOUSE	Palmitoyltransferase ZDHHC13, EC 2.3.1.225 (Huntingtin-interacting protein 14-related protein, HIP14-related protein) (Zinc finger DHHC domain-containing protein 13, DHHC-13)	Zdhhc13	ZDHHC	13	23	22	P53690;Q01726;Q60700	574;315;436
+Homo sapiens	PAT	H0YEN1	H0YEN1_HUMAN	Palmitoyltransferase ZDHHC18	ZDHHC18	ZDHHC	18	0	0		
+Mus musculus	PAT	D6RHA3	D6RHA3_MOUSE	Palmitoyltransferase ZDHHC3	Zdhhc3	ZDHHC	3	0	0		
+Homo sapiens	APT	O95870	ABHGA_HUMAN	Phosphatidylserine lipase ABHD16A, EC 3.1.-.- (Alpha/beta hydrolase domain-containing protein 16A, Abhydrolase domain-containing protein 16A) (HLA-B-associated transcript 5, hBAT5) (Monoacylglycerol lipase ABHD16A, EC 3.1.1.23) (Protein G5)	ABHD16A	ABHD	16	0	0		
+Homo sapiens	APT	Q96GS6	AB17A_HUMAN	Alpha/beta hydrolase domain-containing protein 17A, Abhydrolase domain-containing protein 17A, EC 3.1.2.22	ABHD17A	ABHD	17	4	3		
+Xenopus laevis	APT	Q6DD70	AB17C_XENLA	Alpha/beta hydrolase domain-containing protein 17C, Abhydrolase domain-containing protein 17C, EC 3.1.2.22	abhd17c	ABHD	17	0	0		
+Homo sapiens	APT	Q6PCB6	AB17C_HUMAN	Alpha/beta hydrolase domain-containing protein 17C, Abhydrolase domain-containing protein 17C, EC 3.1.2.22	ABHD17C	ABHD	17	4	3		
+Danio rerio	APT	Q7ZVZ7	AB17C_DANRE	Alpha/beta hydrolase domain-containing protein 17C, Abhydrolase domain-containing protein 17C, EC 3.1.2.22	abhd17c	ABHD	17	0	0		
+Bos taurus	APT	Q1JPD2	ABHGA_BOVIN	Phosphatidylserine lipase ABHD16A, EC 3.1.-.- (Alpha/beta hydrolase domain-containing protein 16A, Abhydrolase domain-containing protein 16A) (HLA-B-associated transcript 5 homolog) (Monoacylglycerol lipase ABHD16A, EC 3.1.1.23)	ABHD16A	ABHD	16	0	0		
