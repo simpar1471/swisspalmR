@@ -13,7 +13,8 @@ knitr::opts_chunk$set(
 )
 ```
 
-# swisspalmR
+# swisspalmR <img src="man/figures/logo.png" align="right" height="200" alt="" />
+
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/simpar1471/swisspalmTemp/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/simpar1471/swisspalmTemp/actions/workflows/R-CMD-check.yaml)
@@ -39,14 +40,14 @@ SWISSpalm database with `getSWISSpalmData()`. You'll get back a list with three 
 3. notInDataset: A character vector with protein accessions which are in SWISSpalm but not in the selected dataset + species
 
 For example:
-```{r example_spalm1}
+```{r example_spalm1, eval = F}
 input_uniprot <- c("P05067", "O00161", "P04899")
 spalm_data_all_species <- swisspalmR::getSWISSpalmData(input_uniprot)
 head(dplyr::tibble(spalm_data_all_species$palmData)); head(spalm_data_all_species[2:3])
 ```
 You can test your protein accessions against specific datasets or species in SWISSpalm using the `dataset.value` and
 `species.value` parameters:
-```{r example_spalm2}
+```{r example_spalm2, eval = F}
 # Checking against only SARS-Cov
 spalm_data_only_sarscov <- swisspalmR::getSWISSpalmData(input_uniprot,
                                                         dataset.value = 1,

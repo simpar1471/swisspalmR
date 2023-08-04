@@ -1,9 +1,10 @@
 Package: swisspalmR
-Title: SWISSpalm In R
+Title: Access SwissPalm data
 Version: 0.0.0.9000
 Authors@R: 
-    person("Simon", "Parker", , "simon.parker@outlook.com", role = c("aut", "cre"))
-Description: Access the SWISSpalm database in R using RSelenium.
+    person("Simon", "Parker", , "simon.parker@lshtm.ac.uk",
+    role = c("aut", "cre"))
+Description: Access the 'SwissPalm' database using 'RSelenium'.
 License: MIT + file LICENSE
 Depends: 
     R (>= 4.1.0)

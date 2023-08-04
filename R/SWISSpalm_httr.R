@@ -97,5 +97,5 @@ SWISSpalm_httr <- function(protein.identifiers, download_dir = tempdir(), datase
   }
 }
 
-SWISSpalm_httr(protein.identifiers = c("P05067", "O00161", "P04899"),
-               dataset = "all")
+# SWISSpalm_httr(protein.identifiers = c("P05067", "O00161", "P04899"),
+#                dataset = "all")
