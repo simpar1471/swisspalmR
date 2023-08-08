@@ -1,15 +1,6 @@
-# dataset_values <- c(
-#   "All proteins" = "all",
-#   "Proteins predicted to be palmitoylated" = "pred",
-#   "Palmitoylation validated or found in at least 1 palmitoyl-proteome (SwissPalm annotated)" = "palm",
-#   "Palmitoylation validated proteins" = "targ",
-#   "Palmitoylation validated proteins or found in palmitoyl-proteomes using 2 independent methods" = "meth",
-#   "Found in palmitoyl-proteomes using 2 independent methods" = "meth2",
-#   "Dataset 6 grouped by gene" = "validated_dataset"
-# )
-
 # Get SWISSpalm organisms from inspecting drop-down menu in
 # https://swisspalm.org/proteins
+html <- httr2::request()
 htmlstr <- '<option value="all">Dataset 1: All proteins</option> <option value="pred">Dataset 2: Proteins predicted to be palmitoylated</option> <option value="palm">Dataset 3: Palmitoylation validated or found in at least 1 palmitoyl-proteome (SwissPalm annotated)</option> <option value="targ">Dataset 4: Palmitoylation validated proteins</option> <option value="meth">Dataset 5: Palmitoylation validated proteins or found in palmitoyl-proteomes using 2 independent methods</option> <option value="meth2">Dataset 6: Found in palmitoyl-proteomes using 2 independent methods</option> <option value="validated_dataset">Dataset 7: Dataset 6 grouped by gene</option>'
 dataset_vals <- strsplit(x = htmlstr,
                          split = "> <")[[1]] |>

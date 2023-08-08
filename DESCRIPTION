@@ -4,8 +4,8 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Simon", "Parker", , "simon.parker@lshtm.ac.uk",
     role = c("aut", "cre"))
-Description: Access the 'SwissPalm' database using 'RSelenium'.
-License: MIT + file LICENSE
+Description: Access 'SwissPalm' data in R.
+License: CC BY 4.0
 Depends: 
     R (>= 4.1.0)
 Imports: 
