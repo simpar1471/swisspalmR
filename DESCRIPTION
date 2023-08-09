@@ -9,9 +9,6 @@ License: CC BY 4.0
 Depends: 
     R (>= 4.1.0)
 Imports: 
-    RSelenium,
-    binman,
-    data.table,
     memoise
 Suggests:
     testthat (>= 3.0.0)

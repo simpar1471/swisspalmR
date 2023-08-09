@@ -3,6 +3,5 @@
 #' @param pkgname Ensures function runs. Not used.
 #' @importFrom memoise memoise
 .onLoad <- function(libname, pkgname) {
-  # getSWISSpalmData_httr <<- memoise::memoise(SWISSpalm_httr)
-  SWISSpalm_selenium <<- memoise::memoise(SWISSpalm_selenium)
+  swissPalm <<- memoise::memoise(swissPalm)
 }

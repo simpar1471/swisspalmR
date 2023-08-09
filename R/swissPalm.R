@@ -1,5 +1,4 @@
-swissPalm_tbl <- swissPalm(protein_id = c("P05067", "O00161", "P04899"),
-                           dataset = "a")
+swissPalm_tbl <- swissPalm(protein_id = c("P05067", "O00161", "P04899"), dataset = "all")
 
 #' Get palmitoylation data from the swissPalm database
 #'
@@ -8,7 +7,9 @@ swissPalm_tbl <- swissPalm(protein_id = c("P05067", "O00161", "P04899"),
 #' @param dataset Which dataset should SWISSpalm use? See valid values in \[swisspalm::dataset_values]. Default = `"all"` (all datasets).
 #' @param species Which species should SWISSpalm search for? See \[swisspalm::species_values] for valid values. Default = `0` (all species).
 #' @param verbose If TRUE, send status messages to the console.
+#' @importFrom httr2 resp_header
 #' @return Data frame containing palmitoylation data for proteins in protein.identifiers.
+#' @export
 swissPalm <- function(protein_id, download_dir = tempdir(), dataset = "all", species = NULL) {
   swissPalm_cookie <- function(resp) {
     cookie <- resp |>
@@ -34,7 +35,7 @@ swissPalm <- function(protein_id, download_dir = tempdir(), dataset = "all", spe
   GET_html <- httr2::resp_body_string(GET_resp) |>
     strsplit(split = "\n") |>
     unlist()
-  # TODO: Add checks for dataset and
+  # TODO: Add checks for dataset and species
   GET_csrf_token_search <- csrf_token(GET_html, form_id = "search_form")
 
   GET_cookie <- swissPalm_cookie(GET_resp)
@@ -60,11 +61,15 @@ swissPalm <- function(protein_id, download_dir = tempdir(), dataset = "all", spe
     `X-Requested-With` = "XMLHttpRequest"
   )
 
-  xhr_li <- list(paste0(protein_id, collapse = ", "),
-                 "100", "all", "", "1", "", "0", "0", "html") |>
-    purrr::set_names(
-      c("free_text", "limit", "dataset", "organism_id", "load_times",
-        "edit_cart", "render_stats", "use_cart", "format"))
+  xhr_li <- list(free_text = paste0(protein_id, collapse = ", "),
+                 limit = "100",
+                 dataset = "all",
+                 organism_id = "",
+                 load_times = "1",
+                 edit_cart = "",
+                 render_stats = "0",
+                 use_cart = "0",
+                 format = "html")
   POST_req <- httr2::request(base_url = "https://swisspalm.org/proteins/search") |>
     httr2::req_headers(!!!headers) |>
     httr2::req_user_agent(string = user) |>
@@ -81,7 +86,7 @@ swissPalm <- function(protein_id, download_dir = tempdir(), dataset = "all", spe
 
   # TODO: Attempt to download file with download_form csrf token--> inspect with
   # TODO: rvest's form extraction functions
-  # GET_csrf_token_search <- csrf_token(GET_html, form_id = "search_form")
+  # GET_csrf_token_download <- csrf_token(GET_html, form_id = "download_form")
 }
 
   # refer_url <- paste0("https://swisspalm.org/proteins?free_text=",
