@@ -1,13 +1,13 @@
-#' Mappings for dataset in getSWISSpalmData()
+#' Mappings for dataset parameter in `swissPalm()`
 #'
-#' @format ## `dataset_values`
 #' A character vector with corresponding names for each available value of
-#' `dataset` in `getSWISSpalmData()`
-"dataset_values"
+#' `dataset` in `swissPalm()`
+#' @examples swisspalmR::datasets[1:5]
+"datasets"
 
-#' Mappings for species parameter in getSWISSpalmData()
+#' Mappings for species parameter in `swissPalm()`
 #'
-#' @format ## `species_values`
 #' A character vector with corresponding names for each available value of
-#' `species` in `getSWISSpalmData()`
-"species_values"
+#' `species` in `swissPalm()`.
+#' @examples swisspalmR::species[1:5]
+"species"

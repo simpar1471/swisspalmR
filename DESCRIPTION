@@ -1,19 +1,31 @@
 Package: swisspalmR
 Title: Access SwissPalm data
-Version: 0.0.0.9000
+Version: 0.0.1.9000
 Authors@R: 
-    person("Simon", "Parker", , "simon.parker@lshtm.ac.uk",
-    role = c("aut", "cre"))
-Description: Access 'SwissPalm' data in R.
+    person(given = "Simon", family = "Parker",
+           email = "simon.parker@lshtm.ac.uk",
+           role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0009-0003-8214-4496"))
+Description: Access 'SwissPalm' data through HTTP
 License: CC BY 4.0
 Depends: 
     R (>= 4.1.0)
 Imports: 
-    memoise
+    cli,
+    curl,
+    dplyr,
+    httr2,
+    memoise,
+    purrr,
+    rvest,
+    stringr
 Suggests:
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
+VignetteBuilder: knitr

@@ -2,29 +2,31 @@
 % Please edit documentation in R/swissPalm.R
 \name{swissPalm}
 \alias{swissPalm}
-\title{Get palmitoylation data from the swissPalm database}
+\title{Retrieve palmitoylation data from the swissPalm database}
 \usage{
-swissPalm(
-  protein_id,
-  download_dir = tempdir(),
-  dataset = "all",
-  species = NULL
-)
+swissPalm(protein_id, dataset = "all", species = NULL)
 }
 \arguments{
-\item{protein_id}{Character vector with protein identifiers. Should be an ID type supported by SWISSpalm (https://swisspalm.org/file_formats).}
+\item{protein_id}{Character vector with protein identifiers. Should be an ID
+type supported by SwissPalm (UniProt AC, UniProt secondary AC, UniProt ID,
+UniProt gene name, Ensembl protein, Ensembl gene, Refseq protein ID, IPI ID,
+UniGene ID, PomBase ID, MGI ID, RGD ID, TAIR protein ID, EuPathDb ID; from
+the \href{https://swisspalm.org/file_formats}{SwissPalm website}.}
 
-\item{download_dir}{Directory in which temporary files will be downloaded. Default = R \code{tempdir()} command.}
+\item{dataset}{Which dataset to use in swissPalm. Will be set to \code{"all"} if
+not a value from \code{swisspalm::datasets}. Default = \code{"all"} (all datasets).}
 
-\item{dataset}{Which dataset should SWISSpalm use? See valid values in [swisspalm::dataset_values]. Default = \code{"all"} (all datasets).}
-
-\item{species}{Which species should SWISSpalm search for? See [swisspalm::species_values] for valid values. Default = \code{0} (all species).}
-
-\item{verbose}{If TRUE, send status messages to the console.}
+\item{species}{Which dataset to use in swissPalm. Will be set to \code{"all"} if
+not a value from \code{swisspalm::species}. Default = \code{"all"} (all datasets).}
 }
 \value{
-Data frame containing palmitoylation data for proteins in protein.identifiers.
+Data frame with palmitoylation data for proteins in \code{protein_id},
+and notes for proteins not found in SwissPalm.
 }
 \description{
-Get palmitoylation data from the swissPalm database
+Retrieve palmitoylation data from the swissPalm database
+}
+\examples{
+swisspalmR::swissPalm(c("P05067", "O00161", "P04899", "P98019"))
+swisspalmR::swissPalm(c("P05067", "O00161", "P04899", "P98019"))
 }

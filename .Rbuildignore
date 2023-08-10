@@ -7,4 +7,6 @@
 ^.github$
 ^.idea$
 ^tests-data$
-
+^_pkgdown.yml$
+^docs$
+^pkgdown$

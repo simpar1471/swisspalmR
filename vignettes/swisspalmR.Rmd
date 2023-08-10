@@ -1,0 +1,22 @@
+---
+title: "swisspalmR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{swisspalmR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, eval = F}
+library(swisspalmR)
+swissPalm_tbl <- swissPalm(
+  protein_id = c("P05067", "O00161", "P04899", "P94358"),
+)
+```
