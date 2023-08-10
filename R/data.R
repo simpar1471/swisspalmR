@@ -1,13 +1,21 @@
-#' Mappings for dataset parameter in `swissPalm()`
+#' Mappings for `dataset` parameter in `swissPalm()`
 #'
-#' A character vector with corresponding names for each available value of
+#' @name datasets
+#' @description
+#' A 7-length character vector with corresponding names for each available value of
 #' `dataset` in `swissPalm()`
-#' @examples swisspalmR::datasets[1:5]
-"datasets"
+#' @docType data
+#' @examples
+#' swisspalmR::datasets[1:5]
+NULL
 
-#' Mappings for species parameter in `swissPalm()`
-#'
-#' A character vector with corresponding names for each available value of
+#' Mappings for `species` parameter in `swissPalm()`
+#' 
+#' @name species
+#' @description
+#' A 92-length character vector with corresponding names for each available value of
 #' `species` in `swissPalm()`.
-#' @examples swisspalmR::species[1:5]
-"species"
+#' @docType data
+#' @examples 
+#' swisspalmR::species[1:5]
+NULL

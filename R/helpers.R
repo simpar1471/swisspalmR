@@ -37,6 +37,7 @@ swissPalm_cookie <- function(resp) {
   cookie[[1]][1]
 }
 
+#' @keywords internal
 csrf_token <- function(resp_html, form_id) {
   form_str <- resp_html[stringr::str_detect(resp_html, pattern = form_id)]
   form_str <- form_str |>
@@ -71,10 +72,4 @@ extract_not_found <- function(POST_html) {
       } else invisible()
     }
   )
-}
-
-#' @keywords internal
-format_swisspalm_table <- function(swisspalm_table) {
-  swisspalm_table
-  out
 }

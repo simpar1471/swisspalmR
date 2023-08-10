@@ -3,18 +3,11 @@
 \docType{data}
 \name{datasets}
 \alias{datasets}
-\title{Mappings for dataset parameter in \code{swissPalm()}}
-\format{
-An object of class \code{character} of length 7.
-}
-\usage{
-datasets
-}
+\title{Mappings for \code{dataset} parameter in \code{swissPalm()}}
 \description{
-A character vector with corresponding names for each available value of
+A 7-length character vector with corresponding names for each available value of
 \code{dataset} in \code{swissPalm()}
 }
 \examples{
 swisspalmR::datasets[1:5]
 }
-\keyword{datasets}

@@ -1,4 +1,7 @@
-.Rproj.user
+*.Rproj
 .idea
 inst/doc
 /docs/
+docs
+.Rhistory
+.Rproj.user

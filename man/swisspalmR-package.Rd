@@ -8,7 +8,15 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Access 'SwissPalm' data through HTTP
+Accesses S-palmityolation data from 'SwissPalm'. `SwissPalm` credit: Mathieu Blanc*, Fabrice P.A. David, Laurence Abrami, Daniel Migliozzi, Florence Armand, Jérôme Bürgi and F. Gisou van der Goot (2015), \doi{10.12688/f1000research.6464.1}.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/simpar1471/swisspalmR/}
+  \item \url{https://simpar1471.github.io/swisspalmR/}
+}
+
 }
 \author{
 \strong{Maintainer}: Simon Parker \email{simon.parker@lshtm.ac.uk} (\href{https://orcid.org/0009-0003-8214-4496}{ORCID}) [copyright holder]

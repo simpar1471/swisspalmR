@@ -1,13 +1,17 @@
+Type: Package
 Package: swisspalmR
 Title: Access SwissPalm data
-Version: 0.0.1.9000
+Version: 0.0.1.9002
 Date: 2023-08-10
 Authors@R: 
-    person(given = "Simon", family = "Parker",
+    person(given = "Simon", family = "Parker", 
            email = "simon.parker@lshtm.ac.uk",
            role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0009-0003-8214-4496"))
-Description: Accesses S-palmityolation data from 'SwissPalm'. `SwissPalm` credit: Mathieu Blanc*, Fabrice P.A. David, Laurence Abrami, Daniel Migliozzi, Florence Armand, Jérôme Bürgi and F. Gisou van der Goot (2015), <doi:10.12688/f1000research.6464.1>. 
+Description: Accesses S-palmityolation data from 'SwissPalm'. `SwissPalm` 
+    credit: Mathieu Blanc*, Fabrice P.A. David, Laurence Abrami, Daniel 
+    Migliozzi, Florence Armand, Jérôme Bürgi and F. Gisou van der Goot (2015), 
+    <doi:10.12688/f1000research.6464.1>. 
 License: CC BY 4.0
 Depends: 
     R (>= 4.1.0)
@@ -26,7 +30,9 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Encoding: UTF-8
+Language: en-GB
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 VignetteBuilder: knitr
+URL: https://github.com/simpar1471/swisspalmR/, https://simpar1471.github.io/swisspalmR/

@@ -4,7 +4,7 @@
 #' type supported by SwissPalm (UniProt AC, UniProt secondary AC, UniProt ID,
 #' UniProt gene name, Ensembl protein, Ensembl gene, Refseq protein ID, IPI ID,
 #' UniGene ID, PomBase ID, MGI ID, RGD ID, TAIR protein ID, EuPathDb ID; from
-#' the [SwissPalm website](https://swisspalm.org/file_formats).
+#' the [SwissPalm website](https://swisspalm.org/file_formats)).
 #' @param dataset Which dataset to use in swissPalm. Will be set to `"all"` if
 #' not a value from `swisspalm::datasets`. Default = `"all"` (all datasets).
 #' @param species Which dataset to use in swissPalm. Will be set to `"all"` if
@@ -12,17 +12,23 @@
 #' @return Data frame with palmitoylation data for proteins in `protein_id`,
 #' and notes for proteins not found in SwissPalm.
 #' @examples
-#' swisspalmR::swissPalm(c("P05067", "O00161", "P04899", "P98019"))
-#' swisspalmR::swissPalm(c("P05067", "O00161", "P04899", "P98019"))
+#' swisspalmR::swissPalm(protein_id = c("P05067", "O00161", "P04899", "P98019"))
+#' 
+#' # Use 'species' parameter to limit your results to those for a species of 
+#' # interest
+#' swisspalmR::swissPalm(
+#'   protein_id = c("P05067", "O00161", "P04899", "P98019"),
+#'   species = swisspalmR::species["Mallard duck"]
+#'   )
 #' @export
 swissPalm <- function(protein_id, dataset = "all", species = NULL) {
   if (length(protein_id) == 0) {
     cli::cli_abort("{.var protein_id} must have length >= 1")
   }
   species <- if (is.null(species)) "" else species
-  check_species_dataset(species = species, dataset = dataset)
+  check_species_dataset(species, dataset)
 
-  user <- "swisspalmR package (IN DEVELOPMENT)"
+  user <- "swisspalmR package (https://simpar1471.github.io/swisspalmR/)"
   GET_req <- "https://swisspalm.org/proteins/refresh_form?first_load=true" |>
     httr2::request() |>
     httr2::req_user_agent(string = user)
@@ -83,7 +89,7 @@ swissPalm <- function(protein_id, dataset = "all", species = NULL) {
     if (nrow(not_found) == 0) {
       return(swissPalm_table)
     } else {
-      return(dplyr::full_join(swissPalm_table, not_found))
+      return(suppressMessages(dplyr::full_join(swissPalm_table, not_found)))
     }
   } else {
     return(not_found)

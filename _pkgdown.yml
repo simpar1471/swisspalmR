@@ -2,48 +2,48 @@ url: https://simpar1471.github.io/swisspalmR/
 template:
   bootstrap: 5
   bslib:
-    blue: "#007bff"
-    indigo: "#6610f2"
-    purple: "#6f42c1"
-    pink: "#e83e8c"
-    red: "#dc3545"
-    orange: "#fd7e14"
-    yellow: "#ffc107"
-    green: "#28a745"
-    teal: "#20c997"
-    cyan: "#17a2b8"
-    white: "#fff"
-    gray: "#6c757d"
-    gray-dark: "#343a40"
-    primary: "#007bff"
-    secondary: "#6c757d"
-    success: "#28a745"
-    default: "#e6f2ff"
-    info: "#17a2b8"
-    warning: "#ffc107"
-    danger: "#dc3545"
-    light: "#f8f9fa"
-    dark: "#20c997"
-    font-family-sans-serif: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\""
-    font-family-monospace: "SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+    blue: '#007bff'
+    indigo: '#6610f2'
+    purple: '#6f42c1'
+    pink: '#e83e8c'
+    red: '#dc3545'
+    orange: '#fd7e14'
+    yellow: '#ffc107'
+    green: '#28a745'
+    teal: '#20c997'
+    cyan: '#17a2b8'
+    white: '#fff'
+    gray: '#6c757d'
+    gray-dark: '#343a40'
+    primary: '#007bff'
+    secondary: '#6c757d'
+    success: '#28a745'
+    default: '#e6f2ff'
+    info: '#17a2b8'
+    warning: '#ffc107'
+    danger: '#dc3545'
+    light: '#f8f9fa'
+    dark: '#20c997'
+    font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol"
+    font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace
 articles:
-- title: All vignettes
-  contents:
-  - swisspalmR
+  - title: All vignettes
+    contents: swisspalmR
 reference:
   - title: Access SwissPalm Data
-    desc: >
-      Access SwissPalm data using free text or an uploaded file.
+    desc: Access SwissPalm data using protein IDs.
     contents:
       - swissPalm
-      - swissPalm_file
-  - title: "Valid parameter values for SwissPalm functions"
-    desc: >
-      Named vectors containing all possible values of `dataset` and `species` 
-      for `swissPalm()` functions.
+  - title: Valid parameter values for SwissPalm functions
+    desc: |
+      Named vectors containing all possible values of `dataset` and `species`  for `swissPalm()` functions.
     contents:
       - datasets
       - species
 navbar:
   bg: default
   type: light
+

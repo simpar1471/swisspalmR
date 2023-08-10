@@ -11,7 +11,7 @@ swissPalm(protein_id, dataset = "all", species = NULL)
 type supported by SwissPalm (UniProt AC, UniProt secondary AC, UniProt ID,
 UniProt gene name, Ensembl protein, Ensembl gene, Refseq protein ID, IPI ID,
 UniGene ID, PomBase ID, MGI ID, RGD ID, TAIR protein ID, EuPathDb ID; from
-the \href{https://swisspalm.org/file_formats}{SwissPalm website}.}
+the \href{https://swisspalm.org/file_formats}{SwissPalm website}).}
 
 \item{dataset}{Which dataset to use in swissPalm. Will be set to \code{"all"} if
 not a value from \code{swisspalm::datasets}. Default = \code{"all"} (all datasets).}
@@ -27,6 +27,12 @@ and notes for proteins not found in SwissPalm.
 Retrieve palmitoylation data from the swissPalm database
 }
 \examples{
-swisspalmR::swissPalm(c("P05067", "O00161", "P04899", "P98019"))
-swisspalmR::swissPalm(c("P05067", "O00161", "P04899", "P98019"))
+swisspalmR::swissPalm(protein_id = c("P05067", "O00161", "P04899", "P98019"))
+
+# Use 'species' parameter to limit your results to those for a species of 
+# interest
+swisspalmR::swissPalm(
+  protein_id = c("P05067", "O00161", "P04899", "P98019"),
+  species = swisspalmR::species["Mallard duck"]
+  )
 }

@@ -3,18 +3,11 @@
 \docType{data}
 \name{species}
 \alias{species}
-\title{Mappings for species parameter in \code{swissPalm()}}
-\format{
-An object of class \code{character} of length 92.
-}
-\usage{
-species
-}
+\title{Mappings for \code{species} parameter in \code{swissPalm()}}
 \description{
-A character vector with corresponding names for each available value of
+A 92-length character vector with corresponding names for each available value of
 \code{species} in \code{swissPalm()}.
 }
 \examples{
 swisspalmR::species[1:5]
 }
-\keyword{datasets}
