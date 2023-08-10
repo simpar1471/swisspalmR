@@ -50,3 +50,11 @@ species <- swisspalmR::species["Mallard duck"]
 spalm_data_only_mallards <- swisspalmR::swissPalm(protein_ids, swisspalmR::species["Mallard duck"])
 head(spalm_data_only_mallards)
 ```
+
+## Credit and copyright
+The SwissPalm database is available under a 
+[Creative Commons BY-NC-ND license](https://creativecommons.org/licenses/by-nc-nd/4.0/).
+SwissPalm reference: 
+[SwissPalm: Protein Palmitoylation database.](http://f1000research.com/articles/4-261/v1) Mathieu 
+Blanc*, Fabrice P.A. David*, Laurence Abrami, Daniel Migliozzi, Florence Armand, Jérôme Burgi and F.
+Gisou van der Goot. F1000Research.
