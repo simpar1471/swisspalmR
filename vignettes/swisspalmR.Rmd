@@ -1,8 +1,10 @@
 ---
-title: "swisspalmR"
+title: "Introduction to swisspalmR"
+description: >
+  Learn how to get started with the basics of swisspalmR.
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{swisspalmR}
+  %\VignetteIndexEntry{Introduction to swisspalmR}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,9 +16,135 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup, eval = F}
+```{r setup}
 library(swisspalmR)
-swissPalm_tbl <- swissPalm(
-  protein_id = c("P05067", "O00161", "P04899", "P94358"),
-)
+```
+
+# Getting started with swisspalmR
+The purpose of the swisspalmR package is to make data from SwissPalm, a database
+on protein *S*-palmitoylation more accessible to R users. This is achieved by
+using [httr2](https://httr2.r-lib.org/) to mimic the HTTP requests usually sent
+by a browser to SwissPalm. Check out the vignette on implementation details for
+more information.
+
+## The SwissPalm website
+SwissPalm data is easily accessed through web browsers, with a simple interface.
+Users may perform several actions:
+
+* Use the central text bar and 'Search' button to get palmitoylation data for a
+  few protein/gene names, separated by commas
+* Use the 'Batch search' button to upload a file with many gene identifiers at
+  once
+* Use the 'Palmitoyl-proteome comparison' button to perform check a user's
+  protein/gene list against published palmitoyl-proteomes for a variety of
+  species.
+
+The header bar contains even more options, which you can check out yourself
+below:
+```{r sp_homepage, out.width = '100%', echo = FALSE}
+# knitr::include_graphics(file.path("img", "swisspalm_home.png"))
+knitr::include_url("https://swisspalm.org/")
+```
+
+The SwissPalm database is an excellent source of information for researchers
+interested in *S*-palmitoylation, but the database has not been made easily
+accessible before in R. The swisspalmR package resolves this by making the same
+HTTP requests used by the SwissPalm website to send and then retrieve
+*S*-palmitoylation data in web browsers.
+
+## Using swisspalmR
+To use swisspalmR, install the package from GitHub.
+```r
+# install.packages("devtools")
+devtools::install_github("simpar1471/swisspalmR")
+```
+
+At present, swisspalmR has one function, `swissPalm()`, which can retrieve the
+protein-level information on *S*-palmitoylation which is usually accessible from
+https://www.swisspalm.org/proteins. This function returns a 25-column data frame
+with protein information (if available) which includes:
+
+* Which organism the queried gene/protein ID is from
+* Whether the protein/gene associated with a queried ID is reviewed in UniProt
+* Whether the protein is palmitolyated, and if so:
+  * At which residues palmitoylation occurs
+  * The number of cysteine residues
+  * Which other PATs/APTs palmitoylate/depalmitoylate the queried protein
+
+This information and other information from `swissPalm()` is useful for
+determining the pattern of palmitoylation in your own samples.
+
+To get data on *S*-palmitoylation irrespective of any other factors, provide
+a character vector of protein identifiers to `swissPalm()`. These identifiers
+should be in one of the formats in the dropdown menu below:
+
+<details>
+  <summary>Valid formats</summary>
+
+* UniProt AC
+* UniProt secondary AC
+* UniProt ID
+* UniProt gene name
+* Ensembl protein
+* Ensembl gene
+* Refseq protein ID
+* IPI ID
+* UniGene ID
+* PomBase ID
+* MGI ID
+* RGD ID
+* TAIR protein ID
+* EuPathDb ID
+</details>
+
+Let's say you have a UniProt accession, a UniProt ID, and an Ensembl ID. As
+SwissPalm recognises all of these, `swissPalm()` will give you information on
+each. Where a single gene name (e.g. `"CALML5"`) maps onto multiple proteins,
+each of these proteins will have their own row.
+```{r swissPalm_fine_IDs, error = FALSE}
+inputs <- c("Q4WCM2", "ENSP00000453745", "CALML5")
+# Include only first five columns to restrict printed output
+swissPalm(inputs)[, 1:5]
+```
+
+Any query identifiers not found in SwissPalm will have `NA` in most columns, but
+the `Found_in_SwissPalm` column will tell you why they were not found in the
+SwissPalm search:
+```{r swissPalm_badids}
+inputs <- c("Q4WCM2", "BAD_ID")
+swissPalm(inputs)[, 1:5]
+```
+
+## Limiting your searches
+Sometimes, you may want to limit the search space to only the species against
+which you are checking, or to only check for data from specific sources. The
+`species` and `dataset` parameters in `swissPalm()` let you do this.
+
+You can check the package objects `swisspalmR::species` or
+`swisspalmR::datasets` to see what the available `species`/`dataset` parameter
+values are:
+```{r check_species_dataset}
+# There are 92 species available as of Sep 12th 2023
+swisspalmR::species[1:5]
+# There are 7 datasets available as of Sep 12th 2023
+swisspalmR::datasets
+```
+
+For example, a gene name can be shared by many species. I could filter the
+results of a SwissPalm search down to a species of interest, such as horses,
+by telling `swissPalm()` I want only that data:
+```{r swissPalm_horses}
+gene_names <- c("ADAMTS1", "AGL", "ANGPTL4", "CALML5", "CEP131", "CD70", "CD97")
+swissPalm(gene_names, species = swisspalmR::species["Equus caballus"])[, 1:5]
+```
+
+I can also further limit SwissPalm to only giving me information when proteins
+were predicted to be *S*-palmitoylated using the `dataset` parameter:
+```{r swissPalm_horses_palmpred}
+gene_names <- c("ADAMTS1", "AGL", "ANGPTL4", "CALML5", "CEP131", "CD70", "CD97")
+swissPalm(
+  gene_names,
+  species = swisspalmR::species["Equus caballus"],
+  dataset = swisspalmR::datasets["Dataset 2: Proteins predicted to be palmitoylated"]
+)[, 1:5]
 ```

@@ -17,11 +17,13 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/simpar1471/swisspalmTemp/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/simpar1471/swisspalmTemp/actions/workflows/R-CMD-check.yaml) [![Project Status: WIP -- Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![R-CMD-check](https://github.com/simpar1471/swisspalmTemp/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/simpar1471/swisspalmTemp/actions/workflows/R-CMD-check.yaml)
+[![Project Status: WIP -- Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
 <!-- badges: end -->
 
-swisspalmR is a small package with one purpose: it retrieves S-palmiotylation data from the SwissPalm database using `httr2`, `rvest` and `curl`.
+swisspalmR is a small package with one purpose: retrieval of S-palmitoylation
+data from the SwissPalm database using `httr2`, `rvest` and `curl`.
 
 ## Installation
 
@@ -34,35 +36,73 @@ devtools::install_github("simpar1471/swisspalmR")
 
 ## Examples
 
-To query the SwissPalm database, get some protein accessions into a vector. The proteins must be supported by SwissPalm, i.e. a UniProt AC, UniProt secondary AC, UniProt ID, UniProt gene name, Ensembl protein, Ensembl gene, Refseq protein ID, IPI ID, UniGene ID, PomBase ID, MGI ID, RGD ID, TAIR protein ID, or EuPathDb ID.
+To query the SwissPalm database, get some protein accessions into a vector. The
+proteins must be supported by SwissPalm, i.e. a UniProt AC,
+UniProt secondary AC, UniProt ID, UniProt gene name, Ensembl protein,
+Ensembl gene, Refseq protein ID, IPI ID, UniGene ID, PomBase ID, MGI ID,
+RGD ID, TAIR protein ID, or EuPathDb ID.
 
-Once in a vector you can check them against SwissPalm the with the `swissPalm()` function You'll get back a dataframe with rows for each protein ID supplied to the function, detailing various aspects of S-palmitoylation for each protein in SwissPalm. For example:
+Once in a vector you can query the SwissPalm database using the `swissPalm()`
+function. You'll receive a 25-column dataframe with rows for each query ID
+supplied to the function, detailing various aspects of S-palmitoylation for
+each protein found in SwissPalm. For example:
 
 ```{r example_spalm1}
 protein_ids <- c("P05067", "O00161", "P04899", "P98019")
-swisspalmR::swissPalm(protein_ids)
+# Only using 5 cols to restrict printed output
+swisspalmR::swissPalm(protein_ids)[, c(1, 3, 4, 23, 24)]
 ```
 
-You can test your protein accessions against specific datasets or species in SwissPalm using the `dataset` and `species` parameters. Valid values for `dataset` and `species` can be found in the package objects `swisspalmR::datasets` and `swisspalmR::species`.
+You can test your protein accessions against specific datasets or species in
+SwissPalm using the `dataset` and `species` parameters. Valid values for
+`dataset` and `species` can be found in the package objects
+`swisspalmR::datasets` and `swisspalmR::species`.
 
 ```{r example_spalm2}
 # Checking against only mallard ducks
 mallard <- swisspalmR::species["Mallard duck"]
-spalm_data_only_mallards <- swisspalmR::swissPalm(protein_ids, 
-                                                  species = mallard)
-head(spalm_data_only_mallards)
+swisspalmR::swissPalm(protein_ids, species = mallard)[, c(1, 3, 4, 23, 24)]
 ```
 
-Note that `swissPalm()` is [memoised](https://memoise.r-lib.org/index.html) - results are cached and returned if the same inputs are provided to `swissPalm()` in one session. This way, SwissPalm can return results to users faster. If you want the `swissPalm()` functions to 'forget' previous results, use `memoise::forget(swissPalm)` .
+More information on using `swissPalm()` can be found in the [introductory
+vignette](https://simpar1471.github.io/swisspalmR/articles/swisspalmR.html).
 
-## Known issues
+Note that `swissPalm()` is [memoised](https://memoise.r-lib.org/index.html) -
+results are cached and returned if the same inputs are provided to `swissPalm()`
+in one session. This way, SwissPalm can return results to users faster. If you
+want the `swissPalm()` function to 'forget' previous results, use
+`memoise::forget(swissPalm)`.
 
--   Using an input vector with more than 100 values may cause a table to be returned which does not have a row for all proteins in the query. You can get around this by splitting your protein ID vector into a list of vectors with length \< 100, then running over this list with `apply()` or `purrr::map()`. If doing this, please use `Sys.sleep()` to force R to wait between making requests, and thereby prevent the likelihood of overwhelming the SwissPalm server.
+## Planned features
 
-## Upcoming features
+Though `swissPalm()` is memoised, the function will request data it has already
+received from SwissPalm if provided in a different vector, or if different
+`species`/`dataset` parameters are used.
 
-The SwissPalm website offers downloads for palmitoylation data in three forms: text, Excel, and FASTA. I hope to emulate this behaviour with extra functions, but for now I have not been able to represent the necessary HTTP commands in R.
+```r
+swissPalm(query_id = "P05067")
+swissPalm(query_id = "P05067", species = "7")
+swissPalm(query_id = c("P05067", "P04899"))
+```
+
+In the above calls, data for `"P05067"` is requested from SwissPalm three times
+even though SwissPalm is memoised. I plan to implement a caching system
+separate from `memoise` which cache `swissPalm()` outputs in memory. These could
+be retrieved when necessary to further reduce the load on the SwissPalm
+database.
+
+Additionally, the SwissPalm database has more than just the
+[protein-level data](https://swisspalm.org/proteins) accessed by `swissPalm()`.
+This includes data on
+[hits/sites](https://swisspalm.org/hits) and
+[experiments](https://swisspalm.org/experiments). I plan to extend swisspalmR
+for accessing this data.
 
 ## Credit and copyright
 
-The SwissPalm database is available under a [Creative Commons BY-NC-ND license](https://creativecommons.org/licenses/by-nc-nd/4.0/). SwissPalm reference: [SwissPalm: Protein Palmitoylation database.](http://f1000research.com/articles/4-261/v1) Mathieu Blanc*, Fabrice P.A. David*, Laurence Abrami, Daniel Migliozzi, Florence Armand, Jérôme Burgi and F. Gisou van der Goot. F1000Research.
+The SwissPalm database is available under a
+[Creative Commons BY-NC-ND license](https://creativecommons.org/licenses/by-nc-nd/4.0/).
+SwissPalm reference:
+[SwissPalm: Protein Palmitoylation database.](http://f1000research.com/articles/4-261/v1)
+Mathieu Blanc*, Fabrice P.A. David*, Laurence Abrami, Daniel Migliozzi, Florence
+Armand, Jérôme Burgi and F. Gisou van der Goot. F1000Research.

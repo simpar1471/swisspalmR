@@ -12,8 +12,8 @@ public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostat
 
 <!-- badges: end -->
 
-swisspalmR is a small package with one purpose: it retrieves
-S-palmiotylation data from the SwissPalm database using `httr2`, `rvest`
+swisspalmR is a small package with one purpose: retrieval of
+S-palmitoylation data from the SwissPalm database using `httr2`, `rvest`
 and `curl`.
 
 ## Installation
@@ -34,39 +34,25 @@ UniProt secondary AC, UniProt ID, UniProt gene name, Ensembl protein,
 Ensembl gene, Refseq protein ID, IPI ID, UniGene ID, PomBase ID, MGI ID,
 RGD ID, TAIR protein ID, or EuPathDb ID.
 
-Once in a vector you can check them against SwissPalm the with the
-`swissPalm()` function You’ll get back a dataframe with rows for each
-protein ID supplied to the function, detailing various aspects of
-S-palmitoylation for each protein in SwissPalm. For example:
+Once in a vector you can query the SwissPalm database using the
+`swissPalm()` function. You’ll receive a 25-column dataframe with rows
+for each query ID supplied to the function, detailing various aspects of
+S-palmitoylation for each protein found in SwissPalm. For example:
 
 ``` r
 protein_ids <- c("P05067", "O00161", "P04899", "P98019")
-swisspalmR::swissPalm(protein_ids)
-#>   Query identifier Found UniProt AC  UniProt ID   Organism
-#> 1           O00161 found     O00161 SNP23_HUMAN H. sapiens
-#> 2           P04899 found     P04899 GNAI2_HUMAN H. sapiens
-#> 3           P05067 found     P05067    A4_HUMAN H. sapiens
-#> 4           P98019 found     P98019  COX2_ANAPL    M. duck
-#>                                  Protein name Found in palmitoyl-proteomes
-#> 1 Synaptosomal-associated protein 23, SNAP-23                        20/22
-#> 2        Guanine nucleotide-binding protein G                        17/22
-#> 3         Amyloid-beta precursor protein, APP                         2/22
-#> 4  Cytochrome c oxidase subunit 2, EC 7.1.1.9                          0/0
-#>   Techniques Times validated
-#> 1          4               4
-#> 2          4               7
-#> 3          2               4
-#> 4          0               0
-#>                                                    DHHC-PATs & APTs Sites
-#> 1                                                                       6
-#> 2 ZDHC3_MOUSE, ZDHC7_MOUSE, ZDHC2_MOUSE, ZDH21_MOUSE\n  LYPA1_HUMAN     3
-#> 3                ZDHC7_MOUSE, ZDH21_MOUSE, ZDHC7_HUMAN, ZDH21_HUMAN     2
-#> 4                                                                       0
-#>   Predicted sites Cys Orthologs
-#> 1             Yes   6       Yes
-#> 2             Yes  11       Yes
-#> 3             Yes  18       Yes
-#> 4              No   3        No
+# Only using 5 cols to restrict printed output
+swisspalmR::swissPalm(protein_ids)[, c(1, 3, 4, 23, 24)]
+#>   Query_identifier  UniProt_ID UniProt_status Protein_has_hits_in_SwissPalm
+#> 1           P05067    A4_HUMAN       Reviewed                          TRUE
+#> 2           P04899 GNAI2_HUMAN       Reviewed                          TRUE
+#> 3           O00161 SNP23_HUMAN       Reviewed                          TRUE
+#> 4           P98019  COX2_ANAPL       Reviewed                         FALSE
+#>   Orthologs_of_this_protein_have_hits_in_SwissPalm
+#> 1                                             TRUE
+#> 2                                             TRUE
+#> 3                                             TRUE
+#> 4                                            FALSE
 ```
 
 You can test your protein accessions against specific datasets or
@@ -77,54 +63,54 @@ values for `dataset` and `species` can be found in the package objects
 ``` r
 # Checking against only mallard ducks
 mallard <- swisspalmR::species["Mallard duck"]
-spalm_data_only_mallards <- swisspalmR::swissPalm(protein_ids, 
-                                                  species = mallard)
-head(spalm_data_only_mallards)
-#>   Query identifier                 Found UniProt AC UniProt ID Organism
-#> 1           P98019                 found     P98019 COX2_ANAPL  M. duck
-#> 2             <NA> not found in database       <NA>       <NA>     <NA>
-#> 3             <NA> not found in database       <NA>       <NA>     <NA>
-#> 4             <NA> not found in database       <NA>       <NA>     <NA>
-#>                                 Protein name Found in palmitoyl-proteomes
-#> 1 Cytochrome c oxidase subunit 2, EC 7.1.1.9                          0/0
-#> 2                                       <NA>                         <NA>
-#> 3                                       <NA>                         <NA>
-#> 4                                       <NA>                         <NA>
-#>   Techniques Times validated Sites Predicted sites Cys Orthologs
-#> 1          0               0     0              No   3        No
-#> 2         NA              NA    NA            <NA>  NA      <NA>
-#> 3         NA              NA    NA            <NA>  NA      <NA>
-#> 4         NA              NA    NA            <NA>  NA      <NA>
-#>   Query.identifier
-#> 1             <NA>
-#> 2           O00161
-#> 3           P04899
-#> 4           P05067
+swisspalmR::swissPalm(protein_ids, species = mallard)[, c(1, 3, 4, 23, 24)]
+#>   Query_identifier UniProt_ID UniProt_status Protein_has_hits_in_SwissPalm
+#> 1           P98019 COX2_ANAPL       Reviewed                         FALSE
+#> 2           O00161       <NA>           <NA>                            NA
+#> 3           P04899       <NA>           <NA>                            NA
+#> 4           P05067       <NA>           <NA>                            NA
+#>   Orthologs_of_this_protein_have_hits_in_SwissPalm
+#> 1                                            FALSE
+#> 2                                               NA
+#> 3                                               NA
+#> 4                                               NA
 ```
+
+More information on using `swissPalm()` can be found in the
+[introductory
+vignette](https://simpar1471.github.io/swisspalmR/articles/swisspalmR.html).
 
 Note that `swissPalm()` is
 [memoised](https://memoise.r-lib.org/index.html) - results are cached
 and returned if the same inputs are provided to `swissPalm()` in one
 session. This way, SwissPalm can return results to users faster. If you
-want the `swissPalm()` functions to ‘forget’ previous results, use
-`memoise::forget(swissPalm)` .
+want the `swissPalm()` function to ‘forget’ previous results, use
+`memoise::forget(swissPalm)`.
 
-## Known issues
+## Planned features
 
-- Using an input vector with more than 100 values may cause a table to
-  be returned which does not have a row for all proteins in the query.
-  You can get around this by splitting your protein ID vector into a
-  list of vectors with length \< 100, then running over this list with
-  `apply()` or `purrr::map()`. If doing this, please use `Sys.sleep()`
-  to force R to wait between making requests, and thereby prevent the
-  likelihood of overwhelming the SwissPalm server.
+Though `swissPalm()` is memoised, the function will request data it has
+already received from SwissPalm if provided in a different vector, or if
+different `species`/`dataset` parameters are used.
 
-## Upcoming features
+``` r
+swissPalm(query_id = "P05067")
+swissPalm(query_id = "P05067", species = "7")
+swissPalm(query_id = c("P05067", "P04899"))
+```
 
-The SwissPalm website offers downloads for palmitoylation data in three
-forms: text, Excel, and FASTA. I hope to emulate this behaviour with
-extra functions, but for now I have not been able to represent the
-necessary HTTP commands in R.
+In the above calls, data for `“P05067”` is requested from SwissPalm three
+times even though SwissPalm is memoised. I plan to implement a caching
+system separate from `memoise` which cache `swissPalm()` outputs in
+memory. These could be retrieved when necessary to further reduce the
+load on the SwissPalm database.
+
+Additionally, the SwissPalm database has more than just the 
+[protein-level data](https://swisspalm.org/proteins) accessed by `swissPalm()`.
+This includes data on
+[hits/sites](https://swisspalm.org/hits) and
+[experiments](https://swisspalm.org/experiments). I plan to extend swisspalmR
+for accessing this data.
 
 ## Credit and copyright
 
