@@ -4,10 +4,10 @@
 \alias{swissPalm}
 \title{Retrieve palmitoylation data from the swissPalm database}
 \usage{
-swissPalm(protein_id, dataset = "all", species = NULL)
+swissPalm(query_id, dataset = "all", species = "")
 }
 \arguments{
-\item{protein_id}{Character vector with protein identifiers. Should be an ID
+\item{query_id}{Character vector with protein identifiers. Should be an ID
 type supported by SwissPalm (UniProt AC, UniProt secondary AC, UniProt ID,
 UniProt gene name, Ensembl protein, Ensembl gene, Refseq protein ID, IPI ID,
 UniGene ID, PomBase ID, MGI ID, RGD ID, TAIR protein ID, EuPathDb ID; from
@@ -16,23 +16,27 @@ the \href{https://swisspalm.org/file_formats}{SwissPalm website}).}
 \item{dataset}{Which dataset to use in swissPalm. Will be set to \code{"all"} if
 not a value from \code{swisspalm::datasets}. Default = \code{"all"} (all datasets).}
 
-\item{species}{Which dataset to use in swissPalm. Will be set to \code{"all"} if
-not a value from \code{swisspalm::species}. Default = \code{"all"} (all datasets).}
+\item{species}{Which species to use in swissPalm. Will be set to \code{""} if
+not a value from \code{swisspalm::species}. Default = \code{""} (all species).}
 }
 \value{
 Data frame with palmitoylation data for proteins in \code{protein_id},
-and notes for proteins not found in SwissPalm.
+and notes for why any elements in \code{protein_id} were not found in SwissPalm.
 }
 \description{
 Retrieve palmitoylation data from the swissPalm database
 }
 \examples{
-swisspalmR::swissPalm(protein_id = c("P05067", "O00161", "P04899", "P98019"))
+\donttest{
+swisspalmR::swissPalm(query_id = c("P05067", "O00161", "P04899", "P98019"))
+}
 
 # Use 'species' parameter to limit your results to those for a species of 
 # interest
+\donttest{
 swisspalmR::swissPalm(
-  protein_id = c("P05067", "O00161", "P04899", "P98019"),
+  query_id = c("P05067", "O00161", "P04899", "P98019"),
   species = swisspalmR::species["Mallard duck"]
   )
+}
 }
