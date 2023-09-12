@@ -1,4 +1,4 @@
-# swisspalmR 0.0.2
+# swisspalmR 0.1.0
 * `swissPalm()` now accesses more palmitoylation data.
   * This is done by downloading the raw text file from the SwissPalm database, 
     then formatting this with `read.table()`.
