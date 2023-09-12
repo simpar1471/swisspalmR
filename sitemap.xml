@@ -22,6 +22,9 @@
     <loc>https://simpar1471.github.io/swisspalmR/news/index.html</loc>
   </url>
   <url>
+    <loc>https://simpar1471.github.io/swisspalmR/reference/convert_swissPalm_table_listcols.html</loc>
+  </url>
+  <url>
     <loc>https://simpar1471.github.io/swisspalmR/reference/datasets.html</loc>
   </url>
   <url>
@@ -34,6 +37,9 @@
     <loc>https://simpar1471.github.io/swisspalmR/reference/swissPalm.html</loc>
   </url>
   <url>
-    <loc>https://simpar1471.github.io/swisspalmR/reference/swisspalmR-package.html</loc>
+    <loc>https://simpar1471.github.io/swisspalmR/reference/swisspalm_GET_req.html</loc>
+  </url>
+  <url>
+    <loc>https://simpar1471.github.io/swisspalmR/reference/swisspalm_POST_req.html</loc>
   </url>
 </urlset>

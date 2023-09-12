@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Accesses S-palmityolation data from SwissPalm. `SwissPalm` 
+<meta name="description" content="Access S-palmityolation data from SwissPalm. `SwissPalm`
     credit: Mathieu Blanc*, Fabrice P.A. David, Laurence Abrami, Daniel 
     Migliozzi, Florence Armand, Jérôme Bürgi and F. Gisou van der Goot (2015), 
     &lt;doi:10.12688/f1000research.6464.1&gt;. ">
@@ -21,7 +21,7 @@
 <script src="deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Access SwissPalm data">
-<meta property="og:description" content="Accesses S-palmityolation data from SwissPalm. `SwissPalm` 
+<meta property="og:description" content="Access S-palmityolation data from SwissPalm. `SwissPalm`
     credit: Mathieu Blanc*, Fabrice P.A. David, Laurence Abrami, Daniel 
     Migliozzi, Florence Armand, Jérôme Bürgi and F. Gisou van der Goot (2015), 
     &lt;doi:10.12688/f1000research.6464.1&gt;. ">
@@ -39,7 +39,7 @@
     
     <a class="navbar-brand me-2" href="index.html">swisspalmR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.9002</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,7 +87,7 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>swisspalmR is a small package with one purpose: it retrieves S-palmiotylation data from the SwissPalm database using <code>httr2</code>, <code>rvest</code> and <code>curl</code>.</p>
+<p>swisspalmR is a small package with one purpose: retrieval of S-palmitoylation data from the SwissPalm database using <code>httr2</code>, <code>rvest</code> and <code>curl</code>.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -100,75 +100,49 @@
 <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h2>
 <p>To query the SwissPalm database, get some protein accessions into a vector. The proteins must be supported by SwissPalm, i.e. a UniProt AC, UniProt secondary AC, UniProt ID, UniProt gene name, Ensembl protein, Ensembl gene, Refseq protein ID, IPI ID, UniGene ID, PomBase ID, MGI ID, RGD ID, TAIR protein ID, or EuPathDb ID.</p>
-<p>Once in a vector you can check them against SwissPalm the with the <code><a href="reference/swissPalm.html">swissPalm()</a></code> function You’ll get back a dataframe with rows for each protein ID supplied to the function, detailing various aspects of S-palmitoylation for each protein in SwissPalm. For example:</p>
+<p>Once in a vector you can query the SwissPalm database using the <code><a href="reference/swissPalm.html">swissPalm()</a></code> function. You’ll receive a 25-column dataframe with rows for each query ID supplied to the function, detailing various aspects of S-palmitoylation for each protein found in SwissPalm. For example:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">protein_ids</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"P05067"</span>, <span class="st">"O00161"</span>, <span class="st">"P04899"</span>, <span class="st">"P98019"</span><span class="op">)</span></span>
-<span><span class="fu">swisspalmR</span><span class="fu">::</span><span class="fu"><a href="reference/swissPalm.html">swissPalm</a></span><span class="op">(</span><span class="va">protein_ids</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   Query identifier Found UniProt AC  UniProt ID   Organism</span></span>
-<span><span class="co">#&gt; 1           O00161 found     O00161 SNP23_HUMAN H. sapiens</span></span>
-<span><span class="co">#&gt; 2           P04899 found     P04899 GNAI2_HUMAN H. sapiens</span></span>
-<span><span class="co">#&gt; 3           P05067 found     P05067    A4_HUMAN H. sapiens</span></span>
-<span><span class="co">#&gt; 4           P98019 found     P98019  COX2_ANAPL    M. duck</span></span>
-<span><span class="co">#&gt;                                  Protein name Found in palmitoyl-proteomes</span></span>
-<span><span class="co">#&gt; 1 Synaptosomal-associated protein 23, SNAP-23                        20/22</span></span>
-<span><span class="co">#&gt; 2        Guanine nucleotide-binding protein G                        17/22</span></span>
-<span><span class="co">#&gt; 3         Amyloid-beta precursor protein, APP                         2/22</span></span>
-<span><span class="co">#&gt; 4  Cytochrome c oxidase subunit 2, EC 7.1.1.9                          0/0</span></span>
-<span><span class="co">#&gt;   Techniques Times validated</span></span>
-<span><span class="co">#&gt; 1          4               4</span></span>
-<span><span class="co">#&gt; 2          4               7</span></span>
-<span><span class="co">#&gt; 3          2               4</span></span>
-<span><span class="co">#&gt; 4          0               0</span></span>
-<span><span class="co">#&gt;                                                    DHHC-PATs &amp; APTs Sites</span></span>
-<span><span class="co">#&gt; 1                                                                       6</span></span>
-<span><span class="co">#&gt; 2 ZDHC3_MOUSE, ZDHC7_MOUSE, ZDHC2_MOUSE, ZDH21_MOUSE\n  LYPA1_HUMAN     3</span></span>
-<span><span class="co">#&gt; 3                ZDHC7_MOUSE, ZDH21_MOUSE, ZDHC7_HUMAN, ZDH21_HUMAN     2</span></span>
-<span><span class="co">#&gt; 4                                                                       0</span></span>
-<span><span class="co">#&gt;   Predicted sites Cys Orthologs</span></span>
-<span><span class="co">#&gt; 1             Yes   6       Yes</span></span>
-<span><span class="co">#&gt; 2             Yes  11       Yes</span></span>
-<span><span class="co">#&gt; 3             Yes  18       Yes</span></span>
-<span><span class="co">#&gt; 4              No   3        No</span></span></code></pre></div>
+<span><span class="co"># Only using 5 cols to restrict printed output</span></span>
+<span><span class="fu">swisspalmR</span><span class="fu">::</span><span class="fu"><a href="reference/swissPalm.html">swissPalm</a></span><span class="op">(</span><span class="va">protein_ids</span><span class="op">)</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">23</span>, <span class="fl">24</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#&gt;   Query_identifier  UniProt_ID UniProt_status Protein_has_hits_in_SwissPalm</span></span>
+<span><span class="co">#&gt; 1           P05067    A4_HUMAN       Reviewed                          TRUE</span></span>
+<span><span class="co">#&gt; 2           P04899 GNAI2_HUMAN       Reviewed                          TRUE</span></span>
+<span><span class="co">#&gt; 3           O00161 SNP23_HUMAN       Reviewed                          TRUE</span></span>
+<span><span class="co">#&gt; 4           P98019  COX2_ANAPL       Reviewed                         FALSE</span></span>
+<span><span class="co">#&gt;   Orthologs_of_this_protein_have_hits_in_SwissPalm</span></span>
+<span><span class="co">#&gt; 1                                             TRUE</span></span>
+<span><span class="co">#&gt; 2                                             TRUE</span></span>
+<span><span class="co">#&gt; 3                                             TRUE</span></span>
+<span><span class="co">#&gt; 4                                            FALSE</span></span></code></pre></div>
 <p>You can test your protein accessions against specific datasets or species in SwissPalm using the <code>dataset</code> and <code>species</code> parameters. Valid values for <code>dataset</code> and <code>species</code> can be found in the package objects <code><a href="reference/datasets.html">swisspalmR::datasets</a></code> and <code><a href="reference/species.html">swisspalmR::species</a></code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Checking against only mallard ducks</span></span>
 <span><span class="va">mallard</span> <span class="op">&lt;-</span> <span class="fu">swisspalmR</span><span class="fu">::</span><span class="va"><a href="reference/species.html">species</a></span><span class="op">[</span><span class="st">"Mallard duck"</span><span class="op">]</span></span>
-<span><span class="va">spalm_data_only_mallards</span> <span class="op">&lt;-</span> <span class="fu">swisspalmR</span><span class="fu">::</span><span class="fu"><a href="reference/swissPalm.html">swissPalm</a></span><span class="op">(</span><span class="va">protein_ids</span>, </span>
-<span>                                                  species <span class="op">=</span> <span class="va">mallard</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">spalm_data_only_mallards</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   Query identifier                 Found UniProt AC UniProt ID Organism</span></span>
-<span><span class="co">#&gt; 1           P98019                 found     P98019 COX2_ANAPL  M. duck</span></span>
-<span><span class="co">#&gt; 2             &lt;NA&gt; not found in database       &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 3             &lt;NA&gt; not found in database       &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 4             &lt;NA&gt; not found in database       &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt;</span></span>
-<span><span class="co">#&gt;                                 Protein name Found in palmitoyl-proteomes</span></span>
-<span><span class="co">#&gt; 1 Cytochrome c oxidase subunit 2, EC 7.1.1.9                          0/0</span></span>
-<span><span class="co">#&gt; 2                                       &lt;NA&gt;                         &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 3                                       &lt;NA&gt;                         &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 4                                       &lt;NA&gt;                         &lt;NA&gt;</span></span>
-<span><span class="co">#&gt;   Techniques Times validated Sites Predicted sites Cys Orthologs</span></span>
-<span><span class="co">#&gt; 1          0               0     0              No   3        No</span></span>
-<span><span class="co">#&gt; 2         NA              NA    NA            &lt;NA&gt;  NA      &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 3         NA              NA    NA            &lt;NA&gt;  NA      &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 4         NA              NA    NA            &lt;NA&gt;  NA      &lt;NA&gt;</span></span>
-<span><span class="co">#&gt;   Query.identifier</span></span>
-<span><span class="co">#&gt; 1             &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 2           O00161</span></span>
-<span><span class="co">#&gt; 3           P04899</span></span>
-<span><span class="co">#&gt; 4           P05067</span></span></code></pre></div>
-<p>Note that <code><a href="reference/swissPalm.html">swissPalm()</a></code> is <a href="https://memoise.r-lib.org/index.html" class="external-link">memoised</a> - results are cached and returned if the same inputs are provided to <code><a href="reference/swissPalm.html">swissPalm()</a></code> in one session. This way, SwissPalm can return results to users faster. If you want the <code><a href="reference/swissPalm.html">swissPalm()</a></code> functions to ‘forget’ previous results, use <code>memoise::forget(swissPalm)</code> .</p>
+<span><span class="fu">swisspalmR</span><span class="fu">::</span><span class="fu"><a href="reference/swissPalm.html">swissPalm</a></span><span class="op">(</span><span class="va">protein_ids</span>, species <span class="op">=</span> <span class="va">mallard</span><span class="op">)</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">23</span>, <span class="fl">24</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#&gt;   Query_identifier UniProt_ID UniProt_status Protein_has_hits_in_SwissPalm</span></span>
+<span><span class="co">#&gt; 1           P98019 COX2_ANAPL       Reviewed                         FALSE</span></span>
+<span><span class="co">#&gt; 2           O00161       &lt;NA&gt;           &lt;NA&gt;                            NA</span></span>
+<span><span class="co">#&gt; 3           P04899       &lt;NA&gt;           &lt;NA&gt;                            NA</span></span>
+<span><span class="co">#&gt; 4           P05067       &lt;NA&gt;           &lt;NA&gt;                            NA</span></span>
+<span><span class="co">#&gt;   Orthologs_of_this_protein_have_hits_in_SwissPalm</span></span>
+<span><span class="co">#&gt; 1                                            FALSE</span></span>
+<span><span class="co">#&gt; 2                                               NA</span></span>
+<span><span class="co">#&gt; 3                                               NA</span></span>
+<span><span class="co">#&gt; 4                                               NA</span></span></code></pre></div>
+<p>More information on using <code><a href="reference/swissPalm.html">swissPalm()</a></code> can be found in the <a href="https://simpar1471.github.io/swisspalmR/articles/swisspalmR.html">introductory vignette</a>.</p>
+<p>Note that <code><a href="reference/swissPalm.html">swissPalm()</a></code> is <a href="https://memoise.r-lib.org/index.html" class="external-link">memoised</a> - results are cached and returned if the same inputs are provided to <code><a href="reference/swissPalm.html">swissPalm()</a></code> in one session. This way, SwissPalm can return results to users faster. If you want the <code><a href="reference/swissPalm.html">swissPalm()</a></code> function to ‘forget’ previous results, use <code>memoise::forget(swissPalm)</code>.</p>
 </div>
 <div class="section level2">
-<h2 id="known-issues">Known issues<a class="anchor" aria-label="anchor" href="#known-issues"></a>
+<h2 id="planned-features">Planned features<a class="anchor" aria-label="anchor" href="#planned-features"></a>
 </h2>
-<ul>
-<li>Using an input vector with more than 100 values may cause a table to be returned which does not have a row for all proteins in the query. You can get around this by splitting your protein ID vector into a list of vectors with length &lt; 100, then running over this list with <code><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply()</a></code> or <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">purrr::map()</a></code>. If doing this, please use <code><a href="https://rdrr.io/r/base/Sys.sleep.html" class="external-link">Sys.sleep()</a></code> to force R to wait between making requests, and thereby prevent the likelihood of overwhelming the SwissPalm server.</li>
-</ul>
-</div>
-<div class="section level2">
-<h2 id="upcoming-features">Upcoming features<a class="anchor" aria-label="anchor" href="#upcoming-features"></a>
-</h2>
-<p>The SwissPalm website offers downloads for palmitoylation data in three forms: text, Excel, and FASTA. I hope to emulate this behaviour with extra functions, but for now I have not been able to represent the necessary HTTP commands in R.</p>
+<p>Though <code><a href="reference/swissPalm.html">swissPalm()</a></code> is memoised, the function will request data it has already received from SwissPalm if provided in a different vector, or if different <code>species</code>/<code>dataset</code> parameters are used.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/swissPalm.html">swissPalm</a></span><span class="op">(</span>query_id <span class="op">=</span> <span class="st">"P05067"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/swissPalm.html">swissPalm</a></span><span class="op">(</span>query_id <span class="op">=</span> <span class="st">"P05067"</span>, species <span class="op">=</span> <span class="st">"7"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/swissPalm.html">swissPalm</a></span><span class="op">(</span>query_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"P05067"</span>, <span class="st">"P04899"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>In the above calls, data for <code>“P05067”</code> is requested from SwissPalm three times even though SwissPalm is memoised. I plan to implement a caching system separate from <code>memoise</code> which cache <code><a href="reference/swissPalm.html">swissPalm()</a></code> outputs in memory. These could be retrieved when necessary to further reduce the load on the SwissPalm database.</p>
+<p>Additionally, the SwissPalm database has more than just the <a href="https://swisspalm.org/proteins" class="external-link">protein-level data</a> accessed by <code><a href="reference/swissPalm.html">swissPalm()</a></code>. This includes data on <a href="https://swisspalm.org/hits" class="external-link">hits/sites</a> and <a href="https://swisspalm.org/experiments" class="external-link">experiments</a>. I plan to extend swisspalmR for accessing this data.</p>
 </div>
 <div class="section level2">
 <h2 id="credit-and-copyright">Credit and copyright<a class="anchor" aria-label="anchor" href="#credit-and-copyright"></a>

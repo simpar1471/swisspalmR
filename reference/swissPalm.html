@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">swisspalmR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.9002</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,12 +57,12 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">swissPalm</span><span class="op">(</span><span class="va">protein_id</span>, dataset <span class="op">=</span> <span class="st">"all"</span>, species <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">swissPalm</span><span class="op">(</span><span class="va">query_id</span>, dataset <span class="op">=</span> <span class="st">"all"</span>, species <span class="op">=</span> <span class="st">""</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>protein_id</dt>
+    <dl><dt>query_id</dt>
 <dd><p>Character vector with protein identifiers. Should be an ID
 type supported by SwissPalm (UniProt AC, UniProt secondary AC, UniProt ID,
 UniProt gene name, Ensembl protein, Ensembl gene, Refseq protein ID, IPI ID,
@@ -76,8 +76,8 @@ not a value from <code>swisspalm::datasets</code>. Default = <code>"all"</code> 
 
 
 <dt>species</dt>
-<dd><p>Which dataset to use in swissPalm. Will be set to <code>"all"</code> if
-not a value from <code>swisspalm::species</code>. Default = <code>"all"</code> (all datasets).</p></dd>
+<dd><p>Which species to use in swissPalm. Will be set to <code>""</code> if
+not a value from <code>swisspalm::species</code>. Default = <code>""</code> (all species).</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -85,64 +85,168 @@ not a value from <code>swisspalm::species</code>. Default = <code>"all"</code> (
     
 
 <p>Data frame with palmitoylation data for proteins in <code>protein_id</code>,
-and notes for proteins not found in SwissPalm.</p>
+and notes for why any elements in <code>protein_id</code> were not found in SwissPalm.</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">swisspalmR</span><span class="fu">::</span><span class="fu">swissPalm</span><span class="op">(</span>protein_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"P05067"</span>, <span class="st">"O00161"</span>, <span class="st">"P04899"</span>, <span class="st">"P98019"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Query identifier Found UniProt AC  UniProt ID   Organism</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           O00161 found     O00161 SNP23_HUMAN H. sapiens</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2           P04899 found     P04899 GNAI2_HUMAN H. sapiens</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3           P05067 found     P05067    A4_HUMAN H. sapiens</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4           P98019 found     P98019  COX2_ANAPL    M. duck</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                  Protein name Found in palmitoyl-proteomes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Synaptosomal-associated protein 23, SNAP-23                        20/22</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2        Guanine nucleotide-binding protein G                        17/22</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         Amyloid-beta precursor protein, APP                         2/22</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  Cytochrome c oxidase subunit 2, EC 7.1.1.9                          0/0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Techniques Times validated</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1          4               4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2          4               7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3          2               4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4          0               0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                    DHHC-PATs &amp; APTs Sites</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                       6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 ZDHC3_MOUSE, ZDHC7_MOUSE, ZDHC2_MOUSE, ZDH21_MOUSE\n  LYPA1_HUMAN     3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                ZDHC7_MOUSE, ZDH21_MOUSE, ZDHC7_HUMAN, ZDH21_HUMAN     2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                       0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Predicted sites Cys Orthologs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1             Yes   6       Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2             Yes  11       Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3             Yes  18       Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4              No   3        No</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu">swisspalmR</span><span class="fu">::</span><span class="fu">swissPalm</span><span class="op">(</span>query_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"P05067"</span>, <span class="st">"O00161"</span>, <span class="st">"P04899"</span>, <span class="st">"P98019"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Query_identifier UniProt_AC  UniProt_ID UniProt_status           Organism</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1           P05067     P05067    A4_HUMAN       Reviewed       Homo sapiens</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2           P04899     P04899 GNAI2_HUMAN       Reviewed       Homo sapiens</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3           O00161     O00161 SNP23_HUMAN       Reviewed       Homo sapiens</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4           P98019     P98019  COX2_ANAPL       Reviewed Anas platyrhynchos</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   Gene_names</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1               AD1, A4, APP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2              GNAI2B, GNAI2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                     SNAP23</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 MTCO2, COXII, COII, MT-CO2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Description</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Amyloid-beta precursor protein, APP (ABPP) (APPI) (Alzheimer disease amyloid A4 protein homolog) (Alzheimer disease amyloid protein) (Amyloid precursor protein) (Amyloid-beta (A4) precursor protein) (Amyloid-beta A4 protein) (Cerebral vascular amyloid peptide, CVAP) (PreA4) (Protease nexin-II, PN-II) [Cleaved into: N-APP; Soluble APP-alpha, S-APP-alpha; Soluble APP-beta, S-APP-beta; C99 (Beta-secretase C-terminal fragment, Beta-CTF); Amyloid-beta protein 42, Abeta42 (Beta-APP42); Amyloid-beta protein 40, Abeta40 (Beta-APP40); C83 (Alpha-secretase C-terminal fragment, Alpha-CTF); P3(42); P3(40); C80; Gamma-secretase C-terminal fragment 59 (Amyloid intracellular domain 59, AICD-59, AID(59)) (Gamma-CTF(59)); Gamma-secretase C-terminal fragment 57 (Amyloid intracellular domain 57, AICD-57, AID(57)) (Gamma-CTF(57)); Gamma-secretase C-terminal fragment 50 (Amyloid intracellular domain 50, AICD-50, AID(50)) (Gamma-CTF(50)); C31 ]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Guanine nucleotide-binding protein G(i) subunit alpha-2 (Adenylate cyclase-inhibiting G alpha protein)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Synaptosomal-associated protein 23, SNAP-23 (Vesicle-membrane fusion protein SNAP-23)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         Cytochrome c oxidase subunit 2, EC 7.1.1.9 (Cytochrome c oxidase polypeptide II)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Number_of_palmitoyl_proteomics_articles</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                 2 of 22</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                17 of 22</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                20 of 22</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                  0 of 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Number_of_palmitoyl_proteomics_studies_where_the_protein_appears_in_a_high_confidence_hit_list</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                                              3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                                             11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                                             11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                                              0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Number_of_technique_categories_used_in_palmitoyl_proteomics_studies</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                   2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                   4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                   4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                            Technique_categories_used_in_palmitoyl_proteomics_studies</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                               Chemical modification and capture of palmitoylated cysteines, Identification of palmitoylation sites</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Chemical modification and capture of palmitoylated cysteines, Identification of PATs/APTs, Identification of palmitoylation sites, Metabolic labeling of palmitate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Chemical modification and capture of palmitoylated cysteines, Identification of PATs/APTs, Identification of palmitoylation sites, Metabolic labeling of palmitate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                                                                                                                 NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Number_of_targeted_studies                       Targeted_studies__PMIDs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                          4                                      23825420</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                          7 31142470, 19001095, 8475115, 9892647, 7651161</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                          4                            31142470, 10329400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                          0                                            NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                             PATs   APTs Number_of_sites   Sites_in_main_isoform</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Q91WU6, Q9D270, Q9NXF8, Q8IVQ6     NA               2                186, 187</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Q8R173, Q91WU6, P59267, Q9D270 O75608               3            66, 352, 112</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                             NA     NA               6 79, 80, 83, 85, 87, 112</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                             NA     NA               0                      NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Number_of_isoforms Max_number_of_cysteines</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                 11                      18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                  6                      11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                  2                       6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                  1                       3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Max_number_of_cysteines_in_TM_or_cytosolic_domain</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Predicted_to_be_S_palmitoylated</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                            TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                            TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                            TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                           FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Predicted_to_be_S_palmitoylated_in_cytosolic_domains</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                 TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Protein_has_hits_in_SwissPalm</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                          TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                          TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                          TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                         FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Orthologs_of_this_protein_have_hits_in_SwissPalm Found_in_SwissPalm</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                             TRUE              found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                             TRUE              found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                             TRUE              found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                            FALSE              found</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Use 'species' parameter to limit your results to those for a species of </span></span></span>
 <span class="r-in"><span><span class="co"># interest</span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">swisspalmR</span><span class="fu">::</span><span class="fu">swissPalm</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  protein_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"P05067"</span>, <span class="st">"O00161"</span>, <span class="st">"P04899"</span>, <span class="st">"P98019"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  query_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"P05067"</span>, <span class="st">"O00161"</span>, <span class="st">"P04899"</span>, <span class="st">"P98019"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  species <span class="op">=</span> <span class="fu">swisspalmR</span><span class="fu">::</span><span class="va"><a href="species.html">species</a></span><span class="op">[</span><span class="st">"Mallard duck"</span><span class="op">]</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Query identifier                 Found UniProt AC UniProt ID Organism</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1           P98019                 found     P98019 COX2_ANAPL  M. duck</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2             &lt;NA&gt; not found in database       &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3             &lt;NA&gt; not found in database       &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4             &lt;NA&gt; not found in database       &lt;NA&gt;       &lt;NA&gt;     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                 Protein name Found in palmitoyl-proteomes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Cytochrome c oxidase subunit 2, EC 7.1.1.9                          0/0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                       &lt;NA&gt;                         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                       &lt;NA&gt;                         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                       &lt;NA&gt;                         &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Techniques Times validated Sites Predicted sites Cys Orthologs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1          0               0     0              No   3        No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2         NA              NA    NA            &lt;NA&gt;  NA      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         NA              NA    NA            &lt;NA&gt;  NA      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4         NA              NA    NA            &lt;NA&gt;  NA      &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Query.identifier</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1             &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2           O00161</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3           P04899</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4           P05067</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Query_identifier UniProt_AC UniProt_ID UniProt_status           Organism</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1           P98019     P98019 COX2_ANAPL       Reviewed Anas platyrhynchos</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2           O00161       &lt;NA&gt;       &lt;NA&gt;           &lt;NA&gt;               &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3           P04899       &lt;NA&gt;       &lt;NA&gt;           &lt;NA&gt;               &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4           P05067       &lt;NA&gt;       &lt;NA&gt;           &lt;NA&gt;               &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   Gene_names</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 MTCO2, COXII, COII, MT-CO2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                         NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                        Description</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Cytochrome c oxidase subunit 2, EC 7.1.1.9 (Cytochrome c oxidase polypeptide II)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                             &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                             &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                             &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Number_of_palmitoyl_proteomics_articles</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                  0 of 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                    &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                    &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                    &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Number_of_palmitoyl_proteomics_studies_where_the_protein_appears_in_a_high_confidence_hit_list</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                                              0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                                             NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                                             NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                                             NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Number_of_technique_categories_used_in_palmitoyl_proteomics_studies</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                   0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                  NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                  NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                  NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Technique_categories_used_in_palmitoyl_proteomics_studies</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Number_of_targeted_studies Targeted_studies__PMIDs PATs APTs Number_of_sites</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                          0                      NA   NA   NA               0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                         NA                      NA   NA   NA              NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                         NA                      NA   NA   NA              NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                         NA                      NA   NA   NA              NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Sites_in_main_isoform Number_of_isoforms Max_number_of_cysteines</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                    NA                  1                       3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                    NA                 NA                      NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                    NA                 NA                      NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                    NA                 NA                      NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Max_number_of_cysteines_in_TM_or_cytosolic_domain</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Predicted_to_be_S_palmitoylated</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                           FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                              NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                              NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                              NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Predicted_to_be_S_palmitoylated_in_cytosolic_domains</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Protein_has_hits_in_SwissPalm</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                         FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                            NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                            NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                            NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Orthologs_of_this_protein_have_hits_in_SwissPalm    Found_in_SwissPalm</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                            FALSE                 found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                               NA not found in database</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                               NA not found in database</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                               NA not found in database</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
